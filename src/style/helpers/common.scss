@@ -1,0 +1,50 @@
+$font-class: font !default;
+$height-class: h;
+$width-class: w;
+$line-height-class: lh;
+$font-weight-class: fw;
+$i:1;
+
+@for $i from 1 through 15 {
+    .#{$font-class}-#{$i} {
+        font-size: 0.1rem * $i;
+    }
+
+    .#{$height-class}-#{$i} {
+        height: 1rem * $i;
+    }
+
+    .#{width-class}-#{$i} {
+        height: 1rem * $i;
+    }
+
+    .#{$line-height-class}-#{$i} {
+        height: 0.5rem * $i;
+    }
+
+    .#{$font-weight-class}-#{$i} {
+        font-weight: 100 * $i;
+    }
+}
+
+
+body {
+    background-color: #f7f7f7;
+    color: #4a4a4a;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.tg-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .05), 0 0 1px rgba(0, 0, 0, .1);
+}
+
+.tg-heading {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
