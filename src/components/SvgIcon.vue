@@ -1,5 +1,5 @@
 <template>
-  <svg :class="svgClass" aria-hidden="true">
+  <svg :class="svgClass" aria-hidden="true" class="svg-icon">
     <use :xlink:href="iconName"></use>
   </svg>
 </template>

@@ -1,11 +1,11 @@
 <template>
   <section class="tg-index">
     <Row :gutter="10">
-      <Col :md="0" :lg="7">
+      <Col :xs="0" :sm="0" :md="0" :lg="7">
         <tg-profile></tg-profile>
       </Col>
-      <Col :md="24" :lg="10"></Col>
-      <Col :md="0" :lg="7"></Col>
+      <Col :xs="24" :sm="24" :md="24" :lg="7"></Col>
+      <Col :xs="0" :sm="0" :md="0" :lg="7"></Col>
     </Row>
   </section>
 </template>

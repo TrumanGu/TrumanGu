@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import iView from 'iview';
-import './components/SvgComponents/index'
+import './icons'
 import 'iview/dist/styles/iview.css';
 import './style/index.scss'
 
