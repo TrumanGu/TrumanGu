@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { queryLabels } from "@/api/public/repos";
 import tgCard from "@/components/card";
 export default {
   name: "tg-tags",
@@ -14,12 +15,24 @@ export default {
   data() {
     return {
       link_list: [
-        { title: "DataBases", tag: "20", link: "www.baidu.com" },
-        { title: "Java", tag: "1", link: "www.baidu.com" },
-        { title: "C++", tag: "9", link: "www.baidu.com" },
-        { title: "Spring Boot", tag: "9", link: "www.baidu.com" }
+        // { title: "DataBases", tag: "20", link: "www.baidu.com" },
+        // { title: "Java", tag: "1", link: "www.baidu.com" },
+        // { title: "C++", tag: "9", link: "www.baidu.com" },
+        // { title: "Spring Boot", tag: "9", link: "www.baidu.com" }
       ]
     };
+  },
+  created() {
+    queryLabels().then(res => {
+      this.link_list = res.map(item => {
+        const obj = {};
+        obj.title = item.name;
+        obj.tag = 0;
+        return obj;
+      });
+      // console.log(this.link_list);
+    });
+    // .catch(_ => {});
   }
 };
 </script>

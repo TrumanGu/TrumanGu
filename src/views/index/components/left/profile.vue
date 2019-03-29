@@ -26,10 +26,10 @@
       <Button type="primary" long>Follow</Button>
     </div>
     <div class="tg-media">
-      <svg aria-hidden="true">
+      <!-- <svg aria-hidden="true">
         <use xlink:href="#github"></use>
-      </svg>
-      <!-- <svg-icon :iconClass=""></svg-icon> -->
+      </svg> -->
+      <svg-icon iconClass="#github"></svg-icon>
     </div>
   </section>
 </template>

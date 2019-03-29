@@ -40,8 +40,14 @@ export default {
     async initIssueList() {
       queryAllIssues().then(res => {
         this.issue_list = res;
+        // this.getLabelNum(res)
       });
-    }
+    },
+    // getLabelNum(res_list){
+    //   const list = res_list.map((item, index, list)=>{
+    //     item.labels
+    //   })
+    // }
   }
 };
 </script>
