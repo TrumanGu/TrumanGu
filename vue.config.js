@@ -36,16 +36,16 @@ module.exports = {
   },
   configureWebpack: {
     devServer: {
-      // open: true,
-      // https: true,
-      // proxy: {
-      //   '/user': {
-      //     target: 'https://devadminschool.icourt.cc',
-      //   },
-      //   '/live': {
-      //     target: 'https://devadminschool.icourt.cc',
-      //   },
-      // },
+      open: true,
+      https: true,
+      proxy: {
+        // '/user': {
+        //   target: 'https://devadminschool.icourt.cc',
+        // },
+        '/': {
+          target: 'https://api.github.com',
+        },
+      },
     },
   },
 }

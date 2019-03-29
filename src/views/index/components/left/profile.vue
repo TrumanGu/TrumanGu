@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: "tg-index"
+  name: "tg-profile"
 };
 </script>
 
