@@ -1,0 +1,18 @@
+.fade-enter-active {
+    animation: bounce-in .8s;
+}
+
+.fade-leave-active {
+    animation: bounce-in .8s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

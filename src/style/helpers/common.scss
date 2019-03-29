@@ -37,12 +37,15 @@ body {
 
 .tg-heading {
     display: block;
-    font-size: 11px;
+    font-size: 0.7rem;
     letter-spacing: 1px;
     margin-bottom: 5px;
     text-transform: uppercase;
 }
 
-.upper {
+.tg-labels {
+    color: #7a7a7a;
+    font-size: 0.75em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }

@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  name: "tg-index",
+name: "tg-profile",
   data() {
     return {};
   },
@@ -62,6 +62,7 @@ export default {
       this.$Message.warning('Coming Soon ··· ···');
     }
   }
+  
 };
 </script>
 
