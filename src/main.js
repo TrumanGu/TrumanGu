@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import iView from 'iview';
+import './icons'
 import marked from 'marked'
-import './components/SvgComponents/index'
+// import './components/SvgComponents/index'
 import 'iview/dist/styles/iview.css';
 import './style/index.scss'
 
