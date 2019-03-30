@@ -26,12 +26,6 @@
       <Button type="primary" long @click="handleFollow">Follow</Button>
     </div>
     <div class="tg-media">
-<<<<<<< HEAD
-      <!-- <svg aria-hidden="true">
-        <use xlink:href="#github"></use>
-      </svg> -->
-      <svg-icon iconClass="#github"></svg-icon>
-=======
       <Poptip trigger="hover" title="Email me" content="TrumanGu1998@gamil.com">
         <svg-icon iconClass="gmail" style="color:#dc4e41;"></svg-icon>
       </Poptip>
@@ -50,7 +44,6 @@
           <img :src="require('@/assets/img/weiChat.jpg')" alt="My weichat QRcode" width="200px" height="auto" />
         </div>
       </Poptip>
->>>>>>> cbe240a4dd5d69a04db8f4009064c647cff58dae
     </div>
   </section>
 </template>
