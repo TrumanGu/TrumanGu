@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     routerGoDetail() {
-      console.log(this.number);
+      // console.log(this.number);
       this.$router.push({
         name: "article-detail",
         params: { number: this.number }

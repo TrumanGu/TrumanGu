@@ -23,6 +23,7 @@ export default {
     };
   },
   created() {
+    // console.log(process.env);
     queryLabels().then(res => {
       this.link_list = res.map(item => {
         const obj = {};

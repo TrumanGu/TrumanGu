@@ -39,11 +39,14 @@ module.exports = {
       open: true,
       https: true,
       proxy: {
-        // '/user': {
-        //   target: 'https://devadminschool.icourt.cc',
-        // },
-        '/': {
+        '/api': {
+          target: 'https://localhost:3000',
+        },
+        '/github': {
           target: 'https://api.github.com',
+          pathRewrite: {
+            '/github': '/'
+          }
         },
       },
     },

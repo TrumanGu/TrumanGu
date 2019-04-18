@@ -18,7 +18,7 @@ export function queryAllIssues() {
 
 export function queryIssues(number) {
     return request({
-        url: `repos/TrumanGu/TrumanGu/issues/${number}`,
+        url: `/github/repos/TrumanGu/TrumanGu/issues/${number}`,
         method: 'get',
     })
 }
@@ -26,9 +26,17 @@ export function queryIssues(number) {
 /**
  * query github repo labels
  */
+// export function queryLabels() {
+//     return request({
+//         url: 'repos/TrumanGu/TrumanGu/labels',
+//         method: 'get',
+//     })
+// }
+
+
 export function queryLabels() {
     return request({
-        url: 'repos/TrumanGu/TrumanGu/labels',
+        url: '/api/labels/',
         method: 'get',
     })
 }
