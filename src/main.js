@@ -4,20 +4,28 @@ import router from './router'
 import iView from 'iview';
 import './icons'
 import marked from 'marked'
-// import './components/SvgComponents/index'
 import 'iview/dist/styles/iview.css';
-import './style/index.scss'
+import './style/index.scss';
 
 
 marked.setOptions({
   renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false
+  "baseUrl": null,
+  "breaks": false,
+  "gfm": true,
+  "headerIds": true,
+  "headerPrefix": "",
+  "highlight": null,
+  "langPrefix": "language-",
+  "mangle": true,
+  "pedantic": false,
+  "sanitize": false,
+  "sanitizer": null,
+  "silent": false,
+  "smartLists": false,
+  "smartypants": false,
+  "tables": true,
+  "xhtml": false
 });
 
 

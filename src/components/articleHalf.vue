@@ -1,5 +1,5 @@
 <template>
-  <section class="article-detail tg-card">
+  <section class="article-half tg-card">
     <div class="text-wrapper">
       <time class="tg-small tg-heading">
         <!-- {{time}} -->
@@ -10,34 +10,50 @@
           <span v-html="this.$marked(title)"></span>
         </router-link>
       </div>
-      <div v-html="this.$marked(body)"></div>
+      <div v-html="this.$marked(body_half)"></div>
     </div>
   </section>
 </template>
 
 <script>
-import { queryArticle } from "@/api/public/article.js";
+import { queryAllArticles } from "@/api/public/article.js";
 export default {
   name: "article-half",
+  props: {
+    body: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
-      body:"",
       time: "",
-      title: ""
+      body_half: "",
+      title: "",
     };
   },
   created() {
-    queryArticle(this.route.params.id).then(res => {
-      console.log(res);
-      let title_match = this.body.match(/(#\s.*?\n+)/);
-      this.title = title_match[0];
-    });
+    let title_match = this.body.match(/(#\s.*?\n+)/);
+
+    this.title = title_match[0];
+    let index = this.body.match(/###?/);
+
+    if (index) {
+      this.body_half = this.body.slice(this.title.length, index.index - 1);
+    } else {
+      this.body_half = this.body;
+      console.warn("article-half component didn't find any # matches");
+    }
   }
 };
 </script>
 
 <style lang="scss">
-.article-detail {
+.article-half {
   &__title {
     text-align: center;
     h1 {

@@ -16,32 +16,32 @@ export const constantRouterMap = [{
           component: () => import('@/views/index/components/center/center')
         },
         {
-          path: '/article/:number',
+          path: '/article/:id',
           name: 'article-detail',
           component: () => import('@/components/articleDetail')
         },
         {
           //Archives
           path: 'Archives',
-          name: 'article-detail',
+          name: 'article-detailsss',
           component: () => import('@/views/index/components/center/center')
         },
         {
           //Categories
           path: 'Categories',
-          name: 'article-detail',
+          name: 'article-detailasd',
           component: () => import('@/views/index/components/left/links')
         },
         {
           //Tags
           path: 'Tags',
-          name: 'article-detail',
+          name: 'article-detailwqwqw',
           component: () => import('@/views/index/components/center/center')
         },
         {
           //About
           path: 'About',
-          name: 'article-detail',
+          name: 'article-detailcassc',
           component: () => import('@/views/index/components/center/center')
         },
       ]

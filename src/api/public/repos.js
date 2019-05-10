@@ -1,4 +1,4 @@
-import request from '../../utils/request.js'
+import request from '../../utils/request'
 
 /**
  * query all the issues from github repos
@@ -11,14 +11,13 @@ export function queryAllIssues() {
 }
 
 /**
- * 
  * @param {Number} number
  * query issue content by issue_number 
  */
 
 export function queryIssues(number) {
     return request({
-        url: `/github/repos/TrumanGu/TrumanGu/issues/${number}`,
+        url: `/repos/TrumanGu/TrumanGu/issues/${number}`,
         method: 'get',
     })
 }

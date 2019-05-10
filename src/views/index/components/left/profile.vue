@@ -31,26 +31,33 @@
       </Poptip>
       <Poptip trigger="hover">
         <svg-icon iconClass="qq" style="color:rgb(54, 155, 206);"></svg-icon>
-         <div class="api" slot="content">
-          <img :src="require('@/assets/img/qq.jpg')" alt="My qq QRcode" width="200px" height="auto" />
+        <div class="api" slot="content">
+          <img :src="require('@/assets/img/qq.jpg')" alt="My qq QRcode" width="200px" height="auto">
         </div>
       </Poptip>
       <div @click="githubClick()">
         <svg-icon iconClass="github" style="color: rgb(25, 23, 23);"></svg-icon>
       </div>
-      <Poptip trigger="hover">
-        <svg-icon iconClass="weixin" style="color: rgb(0, 200, 0);"></svg-icon>
-        <div class="api" slot="content">
-          <img :src="require('@/assets/img/weiChat.jpg')" alt="My weichat QRcode" width="200px" height="auto" />
-        </div>
-      </Poptip>
+      <!-- <Poptip trigger="hover"> -->
+      <div>
+        <svg-icon iconClass="rss"></svg-icon>
+      </div>
+      <!-- <div class="api" slot="content">
+          <img
+            :src="require('@/assets/img/weiChat.jpg')"
+            alt="My weichat QRcode"
+            width="200px"
+            height="auto"
+      >-->
+      <!-- </div> -->
+      <!-- </Poptip> -->
     </div>
   </section>
 </template>
 
 <script>
 export default {
-name: "tg-profile",
+  name: "tg-profile",
   data() {
     return {};
   },
@@ -58,16 +65,18 @@ name: "tg-profile",
     githubClick() {
       window.open("https://github.com/TrumanGu", "_blank");
     },
-    handleFollow(){
-      this.$Message.warning('Coming Soon ··· ···');
+    handleFollow() {
+      this.$Message.warning("Coming Soon ··· ···");
     }
   }
-  
 };
 </script>
 
 <style lang="scss">
 .tg-profile {
+  position: fixed;
+  width: 240px;
+  top: 114px;
   padding: 20px;
   text-align: center;
   display: flex;
@@ -85,9 +94,9 @@ name: "tg-profile",
       transform: scale(0.99);
       height: 128px;
       width: auto;
-      transition: all .3s;
+      transition: all 0.3s;
       &:hover {
-      transform: scale(1.1);
+        transform: scale(1.1);
       }
     }
   }

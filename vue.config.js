@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  assetsDir: './TrumanGu',
+  assetsDir: './',
   chainWebpack: config => {
     config.plugin('define').tap(args => {
       const argv = process.argv
@@ -37,16 +37,10 @@ module.exports = {
   configureWebpack: {
     devServer: {
       open: true,
-      https: true,
+      https: false,
       proxy: {
         '/api': {
-          target: 'https://localhost:3000',
-        },
-        '/github': {
-          target: 'https://api.github.com',
-          pathRewrite: {
-            '/github': '/'
-          }
+          target: 'http://localhost:3000',
         },
       },
     },

@@ -1,22 +1,11 @@
 <template>
   <section class="tg-index">
-    <Row :gutter="10">
-      <Col :xs="0" :sm="0" :md="6" :lg="6">
-        <tg-profile></tg-profile>
-        <tg-links></tg-links>
-      </Col>
-      <Col :xs="24" :sm="24" :md="12" :lg="12">
-        <transition name="fade">
-          <router-view></router-view>
-        </transition>
-        <!-- <tg-center></tg-center> -->
-      </Col>
-      <Col :xs="0" :sm="0" :md="6" :lg="6">
-        <tg-recent></tg-recent>
-        <tg-archives></tg-archives>
-        <tg-tags></tg-tags>
-      </Col>
-    </Row>
+    <aside class="tg-index__sidebar">
+      <!-- <tg-profile></tg-profile> -->
+    </aside>
+    <!-- <transition name="fade"> -->
+      <router-view></router-view>
+    <!-- </transition> -->
   </section>
 </template>
 
@@ -49,7 +38,11 @@ export default {
     width: 100%;
   }
   @media (min-width: 1280px) {
-    width: 1200px;
+    width: 1000px;
+  }
+
+  &__sidebar {
+    // width: 200px;
   }
 
   > .md-layout-item {
