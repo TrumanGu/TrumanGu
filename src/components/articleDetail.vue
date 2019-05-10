@@ -18,19 +18,21 @@
 <script>
 import { queryArticle } from "@/api/public/article.js";
 export default {
-  name: "article-half",
+  name: "article-detail",
   data() {
     return {
-      body:"",
+      body: "",
       time: "",
-      title: ""
+      title: "",
+      id: ""
     };
   },
   created() {
-    queryArticle(this.route.params.id).then(res => {
-      console.log(res);
-      let title_match = this.body.match(/(#\s.*?\n+)/);
+    this.id = this.$route.params.id;
+    queryArticle(this.id).then(({ para }) => {
+      let title_match = para.content.match(/(#\s.*?\n+)/);
       this.title = title_match[0];
+      this.body = para.content.slice(this.title.length);
     });
   }
 };
