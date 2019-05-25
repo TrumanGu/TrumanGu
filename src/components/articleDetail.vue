@@ -1,38 +1,31 @@
 <template>
-  <section class="article-detail tg-card">
-    <div class="text-wrapper">
-      <time class="tg-small tg-heading">
-        <!-- {{time}} -->
-        <!-- {{ `${ readTime } MINUTES READ (ABOUT ${ body.length } WORDS)` }} -->
-      </time>
-      <div class="article-half__title">
-        <router-link :to="{ name: 'article-detail', params: { id:id} }">
-          <span v-html="this.$marked(title)"></span>
-        </router-link>
-      </div>
-      <div v-html="this.$marked(body)"></div>
+  <!-- <section class="article-detail"> -->
+  <section class="tg-center">
+    <div class="center-wrapper">
+      <article-half :createdAt="createdAt" :body="content" :id="Number.parseInt(id)"></article-half>
     </div>
   </section>
+  <!-- </section> -->
 </template>
 
 <script>
 import { queryArticle } from "@/api/public/article.js";
+import articleHalf from "@/components/articleHalf";
 export default {
   name: "article-detail",
+  components: { articleHalf },
   data() {
     return {
-      body: "",
-      time: "",
-      title: "",
+      content: "",
+      createdAt: "",
       id: ""
     };
   },
   created() {
     this.id = this.$route.params.id;
-    queryArticle(this.id).then(({ para }) => {
-      let title_match = para.content.match(/(#\s.*?\n+)/);
-      this.title = title_match[0];
-      this.body = para.content.slice(this.title.length);
+    queryArticle(this.id).then(({ result }) => {
+      this.createdAt = result.createdAt;
+      this.content = result.content;
     });
   }
 };
@@ -40,19 +33,19 @@ export default {
 
 <style lang="scss">
 .article-detail {
-  &__title {
-    text-align: center;
-    h1 {
-      display: inline;
-    }
-  }
-  .text-wrapper {
-    padding: 2rem;
-    h1 {
-      font-size: 1.6rem;
-      height: 3.6rem;
-      line-height: 3.6rem;
-    }
-  }
+  // &__title {
+  //   text-align: center;
+  //   h1 {
+  //     display: inline;
+  //   }
+  // }
+  // .text-wrapper {
+  //   padding: 2rem;
+  //   h1 {
+  //     font-size: 1.6rem;
+  //     height: 3.6rem;
+  //     line-height: 3.6rem;
+  //   }
+  // }
 }
 </style>

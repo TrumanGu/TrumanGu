@@ -1,14 +1,10 @@
 <template>
   <div class="tg-layout">
-    <Header>
-      <tg-navbar></tg-navbar>
-    </Header>
-    <Content :style="{padding: '50px 0'}">
+    <tg-navbar></tg-navbar>
+    <Content>
       <tg-main></tg-main>
     </Content>
-    <Footer>
-      <tg-footer></tg-footer>
-    </Footer>
+    <tg-footer></tg-footer>
   </div>
 </template>
 

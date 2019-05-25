@@ -51,7 +51,7 @@ export default {
       margin-bottom: 0.5rem;
       padding: 0 1rem;
       transition: all 0.3s;
-      &:last-child {
+      :last-child {
         margin-bottom: 0;
       }
       &:hover {

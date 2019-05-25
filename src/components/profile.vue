@@ -74,9 +74,9 @@ export default {
 
 <style lang="scss">
 .tg-profile {
-  position: fixed;
+  // position: fixed;
   width: 240px;
-  top: 114px;
+  // top: 114px;
   padding: 20px;
   text-align: center;
   display: flex;

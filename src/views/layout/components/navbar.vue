@@ -1,15 +1,21 @@
 <template>
   <nav class="tg-navbar">
-    <Menu mode="horizontal" theme="dark" active-name="1">
-      <div class="layout-logo"></div>
-      <div class="layout-nav">
-        <MenuItem name="1" to="/">Home</MenuItem>
-        <MenuItem name="2" to="/Archives">Archives</MenuItem>
-        <MenuItem name="3" to="/Categories">Categories</MenuItem>
-        <MenuItem name="4" to="/Tags">Tags</MenuItem>
-        <MenuItem name="5" to="/About">About</MenuItem>
+    <div class="tg-navbar__container">
+      <div class="inner">
+        <h1>
+          <router-link to="/">TrumanGu</router-link>
+        </h1>
+        <div class="right">
+          <ul>
+            <router-link tag="li" to="/">Home</router-link>
+            <router-link tag="li" to="/timeline">Timeline</router-link>
+            <router-link tag="li" to="/design">Design</router-link>
+            <router-link tag="li" to="/friends">Friends</router-link>
+            <router-link tag="li" to="/about">About Me</router-link>
+          </ul>
+        </div>
       </div>
-    </Menu>
+    </div>
   </nav>
 </template>
 
@@ -19,10 +25,70 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.md-tabs-navigation {
-  .md-button {
-    height: 60px;
+<style lang="scss" >
+.tg-navbar {
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+  height: 80px;
+  &__container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 80px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: 760px;
+    }
+    @media (min-width: 992px) {
+      width: 970px;
+    }
+    @media (min-width: 1200px) {
+      width: 1170px;
+    }
+
+    .inner {
+      position: relative;
+      float: left;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      line-height: 80px;
+      vertical-align: middle;
+      h1 {
+        font-size: 1.5rem;
+        a {
+          font-weight: 600;
+          color: #fff;
+            transition: all 0.3s;
+            &:hover {
+              opacity: 0.7;
+            }
+        }
+      }
+      .right {
+        ul {
+          display: flex;
+          justify-content: space-around;
+
+          li {
+            margin: 0 1rem;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -4,6 +4,7 @@
       <article-half
         v-for="(item, index) in article_list"
         :key="index"
+        :createdAt="item.createdAt"
         :body="item.content"
         :id="item.id"
       ></article-half>
@@ -38,7 +39,8 @@ export default {
   methods: {
     async init_article_list() {
       queryAllArticles().then(res => {
-        this.article_list = res.para;
+        this.article_list = res.result;
+        this.$store.commit("HAS_REFRESHED", { refreshFlag: true });
       });
     }
   }
@@ -48,6 +50,9 @@ export default {
 <style lang="scss">
 .tg-center {
   .center-wrapper {
+    .article-half {
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>
