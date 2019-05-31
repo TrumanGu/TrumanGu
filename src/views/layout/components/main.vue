@@ -29,11 +29,11 @@ export default {
   watch: {
     windowHeight(val) {
       this.BackgroundCircle.init();
-      this.BackgroundCircle.animate();
+      // this.BackgroundCircle.animate();
     },
     windowWidth(val) {
       this.BackgroundCircle.init();
-      this.BackgroundCircle.animate();
+      // this.BackgroundCircle.animate();
     }
   }
 };
@@ -51,7 +51,7 @@ export default {
     // width: 100%;
     // height: auto;
     position: fixed;
-    top: 200px;
+    top: 0;
   }
 }
 </style>
