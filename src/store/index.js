@@ -5,8 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        refreshFlag: false,
+        refreshFlag: 0,
         scrollY: 0,
+        windowWidth: 0,
+        windowHeight: 0,
+
     },
     mutations: {
         HAS_REFRESHED(state, { refreshFlag }) {
@@ -15,6 +18,10 @@ export default new Vuex.Store({
         },
         SCROLL(state, { scrollY }) {
             state.scrollY = scrollY
+        },
+        RESIZE(state, { windowWidth, windowHeight }){
+            state.windowHeight = windowHeight
+            state.windowWidth = windowWidth
         }
     }
 })

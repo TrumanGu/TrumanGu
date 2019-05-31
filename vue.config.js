@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  assetsDir: './',
+  // assetsDir: './',
   chainWebpack: config => {
     config.plugin('define').tap(args => {
       const argv = process.argv

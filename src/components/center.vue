@@ -21,6 +21,7 @@ import { queryAllIssues } from "@/api/public/repos.js";
 import { queryAllArticles } from "@/api/public/article.js";
 import articleHalf from "@/components/articleHalf.vue";
 import articlePlaceholder from "@/components/articlePlaceholder.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "tg-center",
@@ -36,11 +37,16 @@ export default {
   created() {
     this.init_article_list();
   },
+  computed: {
+    ...mapState(["refreshFlag"])
+  },
   methods: {
     async init_article_list() {
       queryAllArticles().then(res => {
         this.article_list = res.result;
-        this.$store.commit("HAS_REFRESHED", { refreshFlag: true });
+        this.$store.commit("HAS_REFRESHED", {
+          refreshFlag: this.refreshFlag + 1
+        });
       });
     }
   }

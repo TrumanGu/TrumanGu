@@ -76,9 +76,9 @@ export default {
         ul {
           display: flex;
           justify-content: space-around;
-
+          flex-wrap: nowrap;
           li {
-            margin: 0 1rem;
+            padding: 0 1rem;
             color: #fff;
             cursor: pointer;
             transition: all 0.3s;
