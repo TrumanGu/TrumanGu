@@ -77,6 +77,9 @@ export default {
   }
   > .text-wrapper {
     padding: 1.5rem;
+    @media (max-width: 768px) {
+      // padding: 5rem;
+    }
     > .tg-small {
       font-size: 0.7rem;
       margin-bottom: 5px;

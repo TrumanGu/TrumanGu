@@ -1,7 +1,7 @@
 <template>
   <section class="header">
     <div ref="background-container" class="background-container" :style="bgcStyle"></div>
-    <h2 :style="h2Style">TrumanGu's Blog</h2>
+    <h2>TrumanGu's Blog</h2>
   </section>
 </template>
 
@@ -11,15 +11,15 @@ export default {
   data() {
     return {
       bgcStyle: {
-        backgroundImage: "url(" + require("@/assets/img/bgc-1.jpg") + ")",
+        background: "url(" + require("@/assets/img/bgc-1.jpg") + ") no-repeat",
         // backgroundImage:
         //   "url(http://up.enterdesk.com/edpic_source/21/00/00/210000f8e772d7fc0758e67ae4b48807.jpg)",
         // top: "0px",
         // backgroundPositionY: "0px;",
+        backgroundSize: "100%",
+        // background-attachment: fixed;
+        // width: 100%;
         backgroundAttachment: "fixed"
-      },
-      h2Style: {
-        top: "400px"
       }
     };
   },
@@ -42,7 +42,7 @@ export default {
 <style lang="scss">
 .header {
   overflow: hidden;
-  height: 800px;
+  height: 55vw;
   position: relative;
   z-index: 10;
   // display: flex;
@@ -55,16 +55,12 @@ export default {
     transform: translate(-50%, -50%);
     text-align: center;
     position: absolute;
-    top: 400px;
     color: white;
-    font-size: 4rem;
+    font-size: 9rem;
     font-weight: 400;
   }
   .background-container {
-    height: 800px;
-    background-size: cover;
-    text-align: center;
-    position: relative;
+    height: 55vw;
   }
 }
 </style>

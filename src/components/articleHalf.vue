@@ -77,8 +77,8 @@ export default {
 
 <style lang="scss">
 .hljs-ln-n {
-  width: 2.2rem;
-  height: 1.5rem;
+  // width: 2.2rem;
+  // height: 1.5rem;
   text-align: center;
   color: #869194;
   background-color: #eff2f3;
@@ -119,6 +119,7 @@ export default {
     text-align: center;
     h1 {
       display: inline;
+      font-size: 6rem;
     }
     p {
       line-height: 2rem;
@@ -129,16 +130,16 @@ export default {
     }
   }
   .text-wrapper {
-    padding: 2rem;
-    h1 {
-      font-size: 1.6rem;
-      height: 2.6rem;
-      line-height: 2.6rem;
+    padding: 2.5rem;
+    @media (max-width: 768px) {
+      // padding: 5rem;
     }
+
     .markdown-html {
+      font-size: 1rem;
       overflow: hidden;
       p {
-        line-height: 3rem;
+        line-height: 2.5rem;
         width: 100%;
         white-space: normal;
       }

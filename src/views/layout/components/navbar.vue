@@ -62,17 +62,20 @@ export default {
       line-height: 80px;
       vertical-align: middle;
       h1 {
-        font-size: 1.5rem;
+        font-size: 6.5rem;
         a {
           font-weight: 600;
           color: #fff;
-            transition: all 0.3s;
-            &:hover {
-              opacity: 0.7;
-            }
+          transition: all 0.3s;
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
       .right {
+        @media (max-width: 320px) {
+          display: none;
+        }
         ul {
           display: flex;
           justify-content: space-around;
@@ -81,6 +84,7 @@ export default {
             padding: 0 1rem;
             color: #fff;
             cursor: pointer;
+            font-size: 4rem;
             transition: all 0.3s;
             &:hover {
               opacity: 0.7;

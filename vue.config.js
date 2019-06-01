@@ -40,7 +40,7 @@ module.exports = {
       https: false,
       proxy: {
         '/api': {
-          target: 'http://localhost:3000',
+          target: 'https://www.trumangu.fun',
         },
       },
     },

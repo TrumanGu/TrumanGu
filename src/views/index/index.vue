@@ -84,6 +84,9 @@ export default {
 
 <style lang="scss">
 .tg-index {
+  @media (max-width: 768px) {
+    padding-top: 0;
+  }
   padding-top: 3rem;
   margin: auto;
   display: flex;
@@ -123,7 +126,7 @@ export default {
       width: calc(100% - 260px);
     }
     @media (max-width: 768px) {
-      width: 90%;
+      width: 100%;
       margin: auto;
     }
   }

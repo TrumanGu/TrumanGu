@@ -49,3 +49,35 @@ body {
     letter-spacing: 0.1em;
     text-transform: uppercase;
 }
+
+
+@media only screen and (min-width: 340px){
+    html {
+      font-size: 2px !important;
+    }
+  }
+  @media only screen and (min-width: 401px){
+    html {
+      font-size: 2.5px !important;
+    }
+  }
+  @media only screen and (min-width: 428px){
+    html {
+      font-size: 2.675px !important;
+    }
+  }
+  @media only screen and (min-width: 481px){
+    html {
+      font-size: 3.0px !important;
+    }
+  }
+  @media only screen and (min-width: 569px){
+    html {
+      font-size: 3.5px !important;
+    }
+  }
+  @media only screen and (min-width: 641px){
+    html {
+      font-size: 4.0px !important;
+    }
+  }
