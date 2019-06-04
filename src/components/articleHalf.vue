@@ -17,7 +17,7 @@
 
           <span>
             <svg-icon iconClass="time" style="color: lightpink"></svg-icon>
-            {{ readTime }} min read
+            {{ fullTime?fullTime:readTime }} min read
           </span>
         </p>
       </div>
@@ -43,6 +43,9 @@ export default {
     },
     createdAt: {
       type: String
+    },
+    fullTime: {
+      type: Number
     }
   },
   data() {
@@ -77,16 +80,21 @@ export default {
 
 <style lang="scss">
 .hljs-ln-n {
-  // width: 2.2rem;
-  // height: 1.5rem;
+  width: 2.2rem;
+  height: 1.5rem;
   text-align: center;
-  color: #869194;
-  background-color: #eff2f3;
+  // color: #869194;
+  // background: #23241f;
 }
 .hljs {
-  padding: 0;
+  // padding: 0;
+  background-color: #23241f;
+  font-family: Consolas, Menlo, Courier, monospace;
   p {
     word-wrap: break-word;
+  }
+  h3 {
+    // font-size: 10vw;
   }
 }
 // .hljs {
@@ -136,11 +144,17 @@ export default {
     }
 
     .markdown-html {
-      font-size: 1rem;
+      font-size: 16px;
       overflow: hidden;
+      a {
+        color: cornflowerblue;
+      }
+      img {
+        width: 100%;
+      }
       p {
         line-height: 2.5rem;
-        font-size: 3.6rem;
+        // font-size: 3.6rem;
         width: 100%;
         white-space: normal;
       }

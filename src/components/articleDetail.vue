@@ -2,7 +2,7 @@
   <!-- <section class="article-detail"> -->
   <section class="tg-center">
     <div class="center-wrapper">
-      <article-half :createdAt="createdAt" :body="content" :id="Number.parseInt(id)"></article-half>
+      <article-half :createdAt="createdAt" :body="content" :id="Number.parseInt(id)" :fullTime="readTime"></article-half>
     </div>
   </section>
   <!-- </section> -->
@@ -18,7 +18,8 @@ export default {
     return {
       content: "",
       createdAt: "",
-      id: ""
+      id: "",
+      readTime: 0
     };
   },
   created() {
@@ -26,6 +27,7 @@ export default {
     queryArticle(this.id).then(({ result }) => {
       this.createdAt = result.createdAt;
       this.content = result.content;
+      this.readTime =  Number.parseInt(this.content.length / 200);
     });
   }
 };

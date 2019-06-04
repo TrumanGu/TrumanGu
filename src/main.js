@@ -6,17 +6,17 @@ import './icons'
 import marked from 'marked'
 import 'iview/dist/styles/iview.css';
 import './style/index.scss';
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/monokai-sublime.css'
 // import { highlightAuto } from 'highlight.js'
 
 import store from './store'
 
 Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');
-  blocks.forEach((block)=>{
-    hljs.highlightBlock(block)
-    hljs.lineNumbersBlock(block);
-  })
+  // blocks.forEach((block)=>{
+  //   hljs.highlightBlock(block)
+  //   // hljs.lineNumbersBlock(block);
+  // })
 })
 
 marked.setOptions({
@@ -26,16 +26,16 @@ marked.setOptions({
   "gfm": true,
   "headerIds": true,
   "headerPrefix": "",
-  // 'highlight': function (code) {
-  //   return require('highlight.js').highlightAuto(code).value;
-  // },
-  "langPrefix": "language-",
+  'highlight': function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  },
+  "langPrefix": "hljs ",
   "mangle": true,
   "pedantic": false,
   "sanitize": false,
   "sanitizer": null,
   "silent": false,
-  "smartLists": false,
+  "smartLists": true,
   "smartypants": false,
   "tables": true,
   "xhtml": false

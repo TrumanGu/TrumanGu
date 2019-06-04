@@ -33,14 +33,22 @@ export default {
       type: String,
       required: true
     },
-    time: {
-      type: String,
-      required: true
-    },
     number: {
       type: Number,
       required: true
+    },
+    readTime:{
+      type: Number
     }
+  },
+  data(){
+    return {
+      // readTime:0
+    }
+  },
+  created(){
+    
+    // this.readTime = Number.parseInt(this.body.length / 200);
   },
   computed: {
     readTime() {
