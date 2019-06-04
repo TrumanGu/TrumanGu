@@ -1,4 +1,5 @@
 const path = require('path')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, './', dir)
@@ -35,14 +36,27 @@ module.exports = {
       .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
   },
   configureWebpack: {
-    devServer: {
-      open: true,
-      https: false,
-      proxy: {
-        '/api': {
-          target: 'https://www.trumangu.fun',
-        },
+    plugins: [
+      new CompressionWebpackPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+        threshold: 10240,
+        minRatio: 0.8
+      })
+    ],
+    // 生产环境产生sourcemap
+  },
+  productionSourceMap: false,
+
+  devServer: {
+    open: true,
+    https: false,
+    proxy: {
+      '/api': {
+        target: 'https://www.trumangu.fun',
       },
+
     },
   },
 }

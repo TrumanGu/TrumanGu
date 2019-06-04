@@ -1,7 +1,7 @@
 <template>
   <section class="tg-index">
     <div ref="tg-index__left" class="tg-index__left">
-      <tg-profile ref="tg-profile" :class="fixClass" :style="profileStyle"></tg-profile>
+      <tg-profile ref="tg-profile"></tg-profile>
     </div>
     <!-- <tg-center></tg-center> -->
 
