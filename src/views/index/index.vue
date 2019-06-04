@@ -29,56 +29,14 @@ export default {
     "tg-tags": tgTags
   },
   data() {
-    return {
-      profileStyle: {
-        position: "relative",
-        top: 0 + "px"
-      },
-      fixClass: "no-fix",
-      wrapperHeight: 0
-    };
+    return {};
   },
   computed: {
     ...mapState(["refreshFlag", "scrollY"])
-    // fixClass() {
-    //   console.log(this.wrapperHeight - window.scrollY);
-    //   if (window.scrollY >= 620) {
-    //     return "fix";
-    //   } else if (this.wrapperHeight - window.scrollY > -157) {
-    //     return "fix-bottom";
-    //   } else {
-    //     return "no-fix";
-    //   }
-    //   // return this.scrollY > 600 ? "fix" : "no-fix";
-    // }
   },
-  mounted() {
-    this.watchScroll();
-  },
-  watch: {
-    refreshFlag() {
-      this.$nextTick(this.watchScroll);
-    }
-  },
-  methods: {
-    onScroll() {
-      if (this.wrapperHeight - window.scrollY < -134) {
-        this.profileStyle.top =
-          382 + this.wrapperHeight - window.scrollY + "px";
-      } else if (window.scrollY >= 600) {
-        this.profileStyle.position = "fixed";
-        this.profileStyle.top = "250px";
-      } else {
-        this.profileStyle.position = "relative";
-        this.profileStyle.top = "0px";
-      }
-    },
-    watchScroll() {
-      window.removeEventListener("scroll", this.onScroll);
-      this.wrapperHeight = this.$refs["tg-index__left"].offsetHeight;
-      window.addEventListener("scroll", this.onScroll);
-    }
-  }
+  mounted() {},
+  watch: {},
+  methods: {}
 };
 </script>
 
@@ -104,11 +62,7 @@ export default {
     position: absolute;
     bottom: 0;
   }
-  // @media (max-width: 768px) {
-  // }
-  // @media (min-width: 1280px) {
-  //   width: 1000px;
-  // }
+
   &__left {
     position: relative;
     min-height: 80%;
@@ -118,6 +72,8 @@ export default {
       display: none;
     }
     .tg-profile {
+      position: sticky;
+      top: 40%;
     }
   }
   .tg-center {

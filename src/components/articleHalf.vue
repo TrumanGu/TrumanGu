@@ -140,6 +140,7 @@ export default {
       overflow: hidden;
       p {
         line-height: 2.5rem;
+        font-size: 3.6rem;
         width: 100%;
         white-space: normal;
       }

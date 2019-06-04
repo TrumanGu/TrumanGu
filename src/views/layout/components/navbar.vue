@@ -81,7 +81,7 @@ export default {
           justify-content: space-around;
           flex-wrap: nowrap;
           li {
-            padding: 0 1rem;
+            padding: 0 1vw;
             color: #fff;
             cursor: pointer;
             font-size: 4rem;

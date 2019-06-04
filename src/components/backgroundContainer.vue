@@ -42,7 +42,7 @@ export default {
 <style lang="scss">
 .header {
   overflow: hidden;
-  height: 55vw;
+  height: 42vw;
   position: relative;
   z-index: 10;
   // display: flex;
@@ -60,7 +60,7 @@ export default {
     font-weight: 400;
   }
   .background-container {
-    height: 55vw;
+    height: 42vw;
   }
 }
 </style>

@@ -3,12 +3,12 @@
     <div class="tg-avatar">
       <img :src="require('@/assets/img/avatar.jpg')" alt>
     </div>
-    <div class="font-10">
-      <p class="font-15">TrumanGu</p>
+    <div style="    font-size: 4rem;">
+      <p>TrumanGu</p>
       <p>Student / Web</p>
       <p class="gray">NJTH</p>
     </div>
-    <div class="tg-data">
+    <!-- <div class="tg-data">
       <div>
         <p class="tg-heading">POSTS</p>
         <p class="fw-7 font-15">34</p>
@@ -24,7 +24,7 @@
     </div>
     <div class="tg-follow">
       <Button type="primary" long @click="handleFollow">Follow</Button>
-    </div>
+    </div>-->
     <div class="tg-media">
       <Poptip trigger="hover" title="Email me" content="TrumanGu1998@gamil.com">
         <svg-icon iconClass="gmail" style="color:#dc4e41;"></svg-icon>
@@ -90,6 +90,7 @@ export default {
     border-radius: 10rem;
     overflow: hidden;
     flex-grow: 1;
+    margin-bottom: 2rem;
     > img {
       transform: scale(0.99);
       height: 128px;
