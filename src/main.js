@@ -2,15 +2,16 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import iView from 'iview';
-import './icons'
+import Viewer from 'v-viewer'
 import marked from 'marked'
 import 'iview/dist/styles/iview.css';
+import './icons'
 import './style/index.scss';
 import 'highlight.js/styles/monokai-sublime.css'
 // import { highlightAuto } from 'highlight.js'
+import 'viewerjs/dist/viewer.css'
 
 import store from './store'
-
 Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');
   // blocks.forEach((block)=>{
@@ -46,6 +47,7 @@ marked.setOptions({
 // });
 
 Vue.use(iView)
+Vue.use(Viewer)
 Vue.config.productionTip = false
 
 new Vue({

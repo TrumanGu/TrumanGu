@@ -53,7 +53,9 @@ body {
   text-transform: uppercase;
 }
 
-@media (min-width: 1200px) {
+// @media (min-width: 1200px)  {
+
+// @media (min-width: 992px)  {
   .tg-navbar {
     padding: 0;
     position: absolute;
@@ -69,15 +71,15 @@ body {
       padding-left: 15px;
       padding-right: 15px;
       height: 80px;
-      width: 1170px;
+      width: 90%;
 
-      @media (min-width: 768px) {
-        width: 760px;
-      }
+      // @media (min-width: 768px) {
+      //   width: 760px;
+      // }
 
-      @media (min-width: 992px) {
-        width: 970px;
-      }
+      // @media (min-width: 992px) {
+      //   width: 970px;
+      // }
 
       // @media (min-width: 1200px) {
       //   width: 1170px;
@@ -94,6 +96,10 @@ body {
         vertical-align: middle;
 
         h1 {
+          @media (max-width: 480px) {
+            font-size: 20px;
+            display: none; 
+          }
           font-size: 16px;
 
           a {
@@ -108,7 +114,7 @@ body {
         }
 
         .right {
-          @media (max-width: 320px) {
+          @media (max-width: 480px) {
             display: none;
           }
 
@@ -150,6 +156,10 @@ body {
       color: white;
       font-size: 30px;
       font-weight: 400;
+      @media (max-width: 480px) {
+        font-size: 20px;
+        
+      }
     }
 
     .background-container {
@@ -340,21 +350,21 @@ body {
       }
     }
   }
-}
+// }
 
 
 /*在992 和1199 像素之间的屏幕里，中等屏幕，分辨率低的PC*/
 @media (min-width: 992px) and (max-width: 1199px) {
-  h1 {
-    display: inline;
-    font-size: 20px;
-  }
+  // h1 {
+  //   display: inline;
+  //   font-size: 20px;
+  // }
 
-  p {
-    span {
-      // margin: 0 1px;
-    }
-  }
+  // p {
+  //   span {
+  //     // margin: 0 1px;
+  //   }
+  // }
 }
 
 /*在768 和991 像素之间的屏幕里，小屏幕，主要是PAD*/
@@ -362,6 +372,7 @@ body {
   .hidden-no-lg {
     display: none;
   }
+  
 }
 
 /*在480 和767 像素之间的屏幕里，超小屏幕，主要是手机*/
