@@ -40,10 +40,10 @@ export default {
 
 <style lang="scss">
 .tg-recent {
-  padding: 1.5rem;
+  padding: 1.5px;
   .recent {
     display: flex;
-    margin: 0.75rem 0;
+    margin: 0.75px 0;
     .recent-img {
       width: 64px;
       height: 64px;
@@ -55,13 +55,13 @@ export default {
     }
     .recent-text {
       flex-grow: 1;
-      margin-left: 0.8rem;
+      margin-left: 0.8px;
       time {
-        font-size: 0.7rem;
+        font-size: 0.7px;
         color: gray;
       }
       p {
-        font-size: 0.8rem;
+        font-size: 0.8px;
       }
     }
   }

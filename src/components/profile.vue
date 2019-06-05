@@ -3,7 +3,7 @@
     <div class="tg-avatar">
       <img :src="require('@/assets/img/avatar.jpg')" alt>
     </div>
-    <div style="    font-size: 4rem;">
+    <div>
       <p>TrumanGu</p>
       <p>Student / Web</p>
       <p class="gray">NJTH</p>

@@ -34,33 +34,7 @@ export default {
     // window.addEventListener("scroll", this.onScroll, false);
   },
   destroyed() {
-    // window.removeEventListener("scroll", this.onScroll, false);
+    // window.pxoveEventListener("scroll", this.onScroll, false);
   }
 };
 </script>
-
-<style lang="scss">
-.header {
-  overflow: hidden;
-  height: 42vw;
-  position: relative;
-  z-index: 10;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  h2 {
-    white-space: nowrap;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    position: absolute;
-    color: white;
-    font-size: 9rem;
-    font-weight: 400;
-  }
-  .background-container {
-    height: 42vw;
-  }
-}
-</style>

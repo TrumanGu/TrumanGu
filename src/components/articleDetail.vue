@@ -1,19 +1,17 @@
 <template>
-  <!-- <section class="article-detail"> -->
   <section class="tg-center">
     <div class="center-wrapper">
-      <article-half :createdAt="createdAt" :body="content" :id="Number.parseInt(id)" :fullTime="readTime"></article-half>
+      <article-item :createdAt="createdAt" :body="content" :id="Number.parseInt(id)" :fullTime="readTime"></article-item>
     </div>
   </section>
-  <!-- </section> -->
 </template>
 
 <script>
 import { queryArticle } from "@/api/public/article.js";
-import articleHalf from "@/components/articleHalf";
+import articleItem from "@/components/articleItem";
 export default {
   name: "article-detail",
-  components: { articleHalf },
+  components: { articleItem },
   data() {
     return {
       content: "",
@@ -42,11 +40,11 @@ export default {
   //   }
   // }
   // .text-wrapper {
-  //   padding: 2rem;
+  //   padding: 2px;
   //   h1 {
-  //     font-size: 1.6rem;
-  //     height: 3.6rem;
-  //     line-height: 3.6rem;
+  //     font-size: 1.6px;
+  //     height: 3.6px;
+  //     line-height: 3.6px;
   //   }
   // }
 }

@@ -31,16 +31,16 @@ export default {
 
 <style lang="scss" scoped>
 .tg-card {
-  padding: 1rem;
+  padding: 1px;
   > .__tg-title {
     color: #7a7a7a;
     font-size: 0.75em;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5px;
   }
   > .__tg-body {
-    padding: 0.5rem 0.5rem 0;
+    padding: 0.5px 0.5px 0;
   }
   > .__tg-list-body {
     .link-item {
@@ -48,8 +48,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 0.5rem;
-      padding: 0 1rem;
+      margin-bottom: 0.5px;
+      padding: 0 1px;
       transition: all 0.3s;
       :last-child {
         margin-bottom: 0;

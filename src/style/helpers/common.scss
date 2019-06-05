@@ -4,80 +4,376 @@ $width-class: w;
 $line-height-class: lh;
 $font-weight-class: fw;
 $i:1;
+
 @for $i from 1 through 15 {
-    .#{$font-class}-#{$i} {
-        font-size: 0.1rem * $i;
-    }
-    .#{$height-class}-#{$i} {
-        height: 1rem * $i;
-    }
-    .#{width-class}-#{$i} {
-        height: 1rem * $i;
-    }
-    .#{$line-height-class}-#{$i} {
-        height: 0.5rem * $i;
-    }
-    .#{$font-weight-class}-#{$i} {
-        font-weight: 100 * $i;
-    }
+  .#{$font-class}-#{$i} {
+    font-size: 0.1px * $i;
+  }
+
+  .#{$height-class}-#{$i} {
+    height: 1px * $i;
+  }
+
+  .#{width-class}-#{$i} {
+    height: 1px * $i;
+  }
+
+  .#{$line-height-class}-#{$i} {
+    height: 0.5px * $i;
+  }
+
+  .#{$font-weight-class}-#{$i} {
+    font-weight: 100 * $i;
+  }
 }
 
 body {
-    background-color: #f7f7f7;
-    color: #4a4a4a;
-    font-size: 1rem;
-    line-height: 1.5;
+  background-color: #f7f7f7;
+  color: #4a4a4a;
 }
 
 .tg-card {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .05), 0 0 1px rgba(0, 0, 0, .1);
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .05), 0 0 1px rgba(0, 0, 0, .1);
 }
 
 .tg-heading {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+  display: block;
+  font-size: 0.7px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
 .tg-labels {
-    color: #7a7a7a;
-    font-size: 0.75em;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  color: #7a7a7a;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1200px) {
+  .tg-navbar {
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+    height: 80px;
+
+    &__container {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      height: 80px;
+      width: 1170px;
+
+      @media (min-width: 768px) {
+        width: 760px;
+      }
+
+      @media (min-width: 992px) {
+        width: 970px;
+      }
+
+      // @media (min-width: 1200px) {
+      //   width: 1170px;
+      // }
+
+      .inner {
+        position: relative;
+        float: left;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        line-height: 80px;
+        vertical-align: middle;
+
+        h1 {
+          font-size: 16px;
+
+          a {
+            font-weight: 600;
+            color: #fff;
+            transition: all 0.3s;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+
+        .right {
+          @media (max-width: 320px) {
+            display: none;
+          }
+
+          ul {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+
+            li {
+              padding: 0 1vw;
+              color: #fff;
+              cursor: pointer;
+              font-size: 14px;
+              transition: all 0.3s;
+
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header {
+    overflow: hidden;
+    height: 42vw;
+    position: relative;
+    z-index: 10;
+
+    h2 {
+      white-space: nowrap;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      position: absolute;
+      color: white;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    .background-container {
+      height: 42vw;
+    }
+  }
+
+  .tg-index {
+    padding-top: 20px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    max-width: 1200px;
+
+    &__left {
+      position: relative;
+      min-height: 80%;
+      flex: 1;
+      width: 260px;
+
+      .tg-profile {
+        position: sticky;
+        top: 40%;
+      }
+    }
+
+    .tg-center {
+
+      @media (min-width: 769px) {
+        margin-left: 1px;
+        width: calc(100% - 260px);
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: auto;
+      }
+
+      .center-wrapper {
+        section {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+
+      }
+    }
+  }
+
+  .article-item {
+    &__title {
+      text-align: center;
+
+      p {
+        margin: 10px 0;
+      }
+
+      h1 {
+        display: inline;
+        font-size: 20px;
+      }
+    }
+
+    .text-wrapper {
+      padding: 20px;
+
+      .markdown-html {
+        font-size: 16px;
+        overflow: hidden;
+
+        a {
+          color: cornflowerblue;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        p {
+          width: 100%;
+          white-space: normal;
+          line-height: 2
+        }
+      }
+    }
+  }
+
+  .layout-footer-center {
+    height: 260px;
+    background-color: #2f3032;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+
+    .copy-right {
+      text-align: center;
+      line-height: 2;
+      // margin-top: 3px;
+      width: 100%;
+
+      // padding: 2px;
+      // border-top: 1px solid rgba(255, 255, 255, 0.1);
+      a {
+        color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .signature {
+      font-size: 16px;
+      height: 20px;
+    }
+
+    .link-list {
+      display: flex;
+      justify-content: space-around;
+
+      .dot {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+    }
+
+    .media-list {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .center-item-placeholder {
+    overflow: hidden;
+    margin-bottom: 16px;
+
+    >.img-wrapper {
+      overflow: hidden;
+      height: 260px;
+      max-height: 260px;
+      background-color: #eee;
+    }
+
+    >.text-wrapper {
+      padding: 16px;
+
+      >.tg-small {
+        font-size: 14px;
+        margin-bottom: 5px;
+        width: 100px;
+        height: 20px;
+        background-color: #eee;
+      }
+
+      >h1 {
+        width: 30px;
+        height: 20px;
+        background-color: #eee;
+        margin-bottom: 0.8px;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          color: #3273dc;
+        }
+      }
+    }
+
+    >.readmore {
+      padding: 0 1.5px 1.5px;
+      height: 1px;
+      width: 2px;
+      background-color: #eee;
+
+      span {
+        background-color: whitesmoke;
+        padding: 0.3px 0.6px;
+        border-radius: 5px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 
-@media only screen and (min-width: 340px){
-    html {
-      font-size: 2px !important;
+/*在992 和1199 像素之间的屏幕里，中等屏幕，分辨率低的PC*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  h1 {
+    display: inline;
+    font-size: 20px;
+  }
+
+  p {
+    span {
+      // margin: 0 1px;
     }
   }
-  @media only screen and (min-width: 401px){
-    html {
-      font-size: 2.5px !important;
-    }
+}
+
+/*在768 和991 像素之间的屏幕里，小屏幕，主要是PAD*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-no-lg {
+    display: none;
   }
-  @media only screen and (min-width: 428px){
-    html {
-      font-size: 2.675px !important;
-    }
+}
+
+/*在480 和767 像素之间的屏幕里，超小屏幕，主要是手机*/
+@media (min-width: 480px) and (max-width: 767px) {
+  .hidden-no-lg {
+    display: none;
   }
-  @media only screen and (min-width: 481px){
-    html {
-      font-size: 3.0px !important;
-    }
+}
+
+/*在小于480 像素的屏幕，微小屏幕，更低分辨率的手机*/
+@media (max-width: 479px) {
+  .hidden-no-lg {
+    display: none;
   }
-  @media only screen and (min-width: 569px){
-    html {
-      font-size: 3.5px !important;
-    }
-  }
-  @media only screen and (min-width: 641px){
-    html {
-      font-size: 4.0px !important;
-    }
-  }
+}

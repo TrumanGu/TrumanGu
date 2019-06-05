@@ -28,6 +28,6 @@ export default {
 
 <style lang="scss">
 .tg-archives {
-  margin-top: 0.7rem;
+  margin-top: 0.7px;
 }
 </style>

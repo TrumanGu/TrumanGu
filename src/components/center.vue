@@ -1,13 +1,13 @@
 <template>
   <section class="tg-center">
     <div class="center-wrapper">
-      <article-half
+      <article-item
         v-for="(item, index) in article_list"
         :key="index"
         :createdAt="item.createdAt"
         :body="item.content"
         :id="item.id"
-      ></article-half>
+      ></article-item>
       <article-placeholder v-if="article_list.length===0"></article-placeholder>
       <article-placeholder v-if="article_list.length===0"></article-placeholder>
       <article-placeholder v-if="article_list.length===0"></article-placeholder>
@@ -19,14 +19,14 @@
 <script>
 import { queryAllIssues } from "@/api/public/repos.js";
 import { queryAllArticles } from "@/api/public/article.js";
-import articleHalf from "@/components/articleHalf.vue";
+import articleItem from "@/components/articleItem.vue";
 import articlePlaceholder from "@/components/articlePlaceholder.vue";
 import { mapState } from "vuex";
 
 export default {
   name: "tg-center",
   components: {
-    "article-half": articleHalf,
+    "article-item": articleItem,
     "article-placeholder": articlePlaceholder
   },
   data() {
@@ -52,13 +52,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.tg-center {
-  .center-wrapper {
-    .article-half {
-      margin-bottom: 1rem;
-    }
-  }
-}
-</style>
