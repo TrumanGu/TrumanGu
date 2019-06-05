@@ -1,5 +1,5 @@
 <template>
-  <section v-viewer class="article-item tg-card">
+  <section class="article-item tg-card">
     <div class="text-wrapper">
       <time class="tg-small tg-heading">
         <!-- {{time}} -->
