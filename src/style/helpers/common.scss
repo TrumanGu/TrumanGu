@@ -169,6 +169,7 @@ body {
 
   .tg-index {
     padding-top: 20px;
+    padding-bottom: 100px;
     margin: auto;
     display: flex;
     position: relative;
@@ -187,7 +188,6 @@ body {
     }
 
     .tg-center {
-
       @media (min-width: 769px) {
         margin-left: 1px;
         width: calc(100% - 260px);
@@ -197,7 +197,6 @@ body {
         width: 100%;
         margin: auto;
       }
-
       .center-wrapper {
         section {
           margin-bottom: 20px;
@@ -252,6 +251,7 @@ body {
           width: 100%;
           cursor: pointer;
         }
+      
         code:not(.hljs) {
           background-color: rgba(27,31,35,.05);
           border-radius: 3px;

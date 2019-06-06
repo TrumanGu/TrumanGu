@@ -88,6 +88,7 @@ export const constantRouterMap = [{
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes: constantRouterMap
 })
 

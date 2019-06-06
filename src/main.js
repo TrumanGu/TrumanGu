@@ -4,13 +4,13 @@ import router from './router'
 import iView from 'iview';
 import Viewer from 'v-viewer'
 import marked from 'marked'
+import VueDisqus from 'vue-disqus'
 import 'iview/dist/styles/iview.css';
 import './icons'
 import './style/index.scss';
 import 'highlight.js/styles/monokai-sublime.css'
 // import { highlightAuto } from 'highlight.js'
 import 'viewerjs/dist/viewer.css'
-
 import store from './store'
 Vue.directive('highlight',function (el) {
   let blocks = el.querySelectorAll('pre code');
@@ -48,6 +48,8 @@ marked.setOptions({
 
 Vue.use(iView)
 Vue.use(Viewer)
+Vue.use(VueDisqus)
+
 Vue.config.productionTip = false
 
 new Vue({

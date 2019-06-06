@@ -45,7 +45,6 @@ export default {
   .main-view {
     position: relative;
     z-index: 10;
-    padding-bottom: 6px;
   }
   #bubbles {
     // width: 100%;

@@ -1,7 +1,19 @@
 <template>
   <section class="tg-center">
     <div class="center-wrapper">
-      <article-item :createdAt="createdAt" :body="content" :id="Number.parseInt(id)" :fullTime="readTime"></article-item>
+      <article-item
+        :createdAt="createdAt"
+        :body="content"
+        :id="Number.parseInt(id)"
+        :fullTime="readTime"
+      ></article-item>
+      <div class="comments">
+        <vue-disqus
+          shortname="trumangu-fun"
+          :identifier="id+''"
+        ></vue-disqus>
+          <!-- url="http://example.com/path" -->
+      </div>
     </div>
   </section>
 </template>
@@ -25,9 +37,10 @@ export default {
     queryArticle(this.id).then(({ result }) => {
       this.createdAt = result.createdAt;
       this.content = result.content;
-      this.readTime =  Number.parseInt(this.content.length / 200);
+      this.readTime = Number.parseInt(this.content.length / 200);
     });
-  }
+  },
+  mounted() {}
 };
 </script>
 
