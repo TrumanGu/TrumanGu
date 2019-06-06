@@ -43,7 +43,7 @@ export default {
   *::selection {
     background: #beedc7;
     // background: #ECAD9E;
-    color: gray;
+    // color: gray;
     // color: lightyellow;
   }
   .copy-right {
