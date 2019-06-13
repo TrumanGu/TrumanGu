@@ -8,13 +8,11 @@
         :fullTime="readTime"
       ></article-item>
       <div class="comments">
-        <vue-disqus
-          shortname="trumangu-fun"
-          :identifier="id+''"
-        ></vue-disqus>
-          <!-- url="http://example.com/path" -->
+        <vue-disqus shortname="trumangu-fun" :identifier="id+''"></vue-disqus>
+        <!-- url="http://example.com/path" -->
       </div>
     </div>
+
   </section>
 </template>
 
