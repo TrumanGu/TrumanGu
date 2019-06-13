@@ -5,6 +5,7 @@ import iView from 'iview';
 import Viewer from 'v-viewer'
 import marked from 'marked'
 import VueDisqus from 'vue-disqus'
+import './permission'
 import 'iview/dist/styles/iview.css';
 import './icons'
 import './style/index.scss';
@@ -12,7 +13,7 @@ import 'highlight.js/styles/monokai-sublime.css'
 // import { highlightAuto } from 'highlight.js'
 import 'viewerjs/dist/viewer.css'
 import store from './store'
-Vue.directive('highlight',function (el) {
+Vue.directive('highlight', function (el) {
   let blocks = el.querySelectorAll('pre code');
   // blocks.forEach((block)=>{
   //   hljs.highlightBlock(block)
@@ -43,7 +44,7 @@ marked.setOptions({
 });
 
 // $(document).ready(function() {
- 
+
 // });
 
 Vue.use(iView)

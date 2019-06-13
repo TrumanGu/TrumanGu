@@ -1,5 +1,5 @@
 <template>
-  <section class="tg-center">
+  <section class="tg-center article-detail">
     <div class="center-wrapper">
       <article-item
         :createdAt="createdAt"
@@ -12,7 +12,6 @@
         <!-- url="http://example.com/path" -->
       </div>
     </div>
-
   </section>
 </template>
 
@@ -44,19 +43,5 @@ export default {
 
 <style lang="scss">
 .article-detail {
-  // &__title {
-  //   text-align: center;
-  //   h1 {
-  //     display: inline;
-  //   }
-  // }
-  // .text-wrapper {
-  //   padding: 2px;
-  //   h1 {
-  //     font-size: 1.6px;
-  //     height: 3.6px;
-  //     line-height: 3.6px;
-  //   }
-  // }
 }
 </style>
