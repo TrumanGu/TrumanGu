@@ -1,5 +1,9 @@
 const path = require('path')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const isDev = process.env.NODE_ENV !== 'production'
 
 function resolve(dir) {
   return path.join(__dirname, './', dir)
@@ -34,16 +38,65 @@ module.exports = {
     config.module
       .rule('images')
       .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+
+
   },
   configureWebpack: {
+    module: {
+      rules: [
+        // {
+        //   test: /\.css$/,
+        //   use: [
+        //     isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+        //     'css-loader',
+        //   ],
+        // },
+        // {
+        //   test: /\.(scss|sass)$/,
+        //   use: [
+        //     isDev ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+        //     "css-loader",
+        //     "postcss-loader",
+        //     "sass-loader"
+        //   ],
+        // },
+      ]
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          theme: {
+            name: 'chunk-iview',
+            test: /[\\/]node_modules[\\/]iview[\\/]/,
+            chunks: 'all',
+            priority: 1,
+            reuseExistingChunk: true,
+            enforce: true
+          },
+          highlightjs: {
+            name: 'chunk-highlightjs',
+            test: /[\\/]node_modules[\\/]highlight.js[\\/]/,
+            chunks: 'all',
+            priority: 1,
+            reuseExistingChunk: true,
+            enforce: true
+          }
+        }
+      }
+    },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: isDev ? "[name].css" : "css/[name].[contenthash].css",
+        chunkFilename: isDev ? "[id].css" : "css/[id].[contenthash].css"
+      }),
       new CompressionWebpackPlugin({
         filename: '[path].gz[query]',
         algorithm: 'gzip',
         test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
         threshold: 10240,
         minRatio: 0.8
-      })
+      }),
+      new BundleAnalyzerPlugin()
     ],
     // 生产环境产生sourcemap
   },

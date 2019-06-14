@@ -1,5 +1,5 @@
 <template>
-  <section class="article-item tg-card" v-viewer> 
+  <section class="article-item tg-card" v-viewer>
     <div class="text-wrapper">
       <time class="tg-small tg-heading">
         <!-- {{time}} -->
@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="markdown-html" :class="h1Class">
-        <pre v-html="this.$marked(body_half)" v-highlight></pre>
+        <pre v-html="this.$marked(isDetailPage?body: body_half)" v-highlight></pre>
       </div>
     </div>
   </section>
@@ -83,16 +83,9 @@ export default {
       this.body_half = this.body.slice(this.title.length, index.index - 1);
     } else {
       this.body_half = this.body;
-      console.warn("article-item component didn't find any # matches");
+      // console.warn("article-item component didn't find any # matches");
     }
   },
-  created() {},
-  watch: {
-    body(new_val) {
-      this.body_half = new_val;
-      // console.log('body is new',new_val)
-    }
-  }
 };
 </script>
 
@@ -106,43 +99,12 @@ export default {
   width: 2.2px;
   height: 1.5px;
   text-align: center;
-  // color: #869194;
-  // background: #23241f;
 }
 .hljs {
-  // padding: 0;
   background-color: #23241f;
   font-family: Consolas, Menlo, Courier, monospace;
   p {
     word-wrap: break-word;
   }
-  h3 {
-    // font-size: 10vw;
-  }
 }
-// .hljs {
-//   border: 0;
-//   display: block;
-//   padding: 1px;
-//   margin: 0;
-//   width: 100%;
-//   font-weight: 200;
-//   // color: #333;
-//   white-space: pre-wrap;
-//    color: #869194;
-//   background-color: #eff2f3;
-// }
-// .hljs ol {
-//   list-style: decimal;
-//   margin: 0px 0px 0 40px !important;
-
-// }
-// .hljs ol li {
-//   padding-left: 1px;
-//   list-style: decimal-leading-zero;
-//   border-left: 1px solid #ddd !important;
-//       background-color: #f7f7f7!important;
-//   white-space: pre;
-//   line-height: 1.7px;
-// }
 </style>

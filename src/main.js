@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import iView from 'iview';
 import Viewer from 'v-viewer'
 import marked from 'marked'
 import VueDisqus from 'vue-disqus'
+// import iView from 'iview';
+import './iview';
 import './permission'
 import 'iview/dist/styles/iview.css';
 import './icons'
 import './style/index.scss';
 import 'highlight.js/styles/monokai-sublime.css'
-// import { highlightAuto } from 'highlight.js'
+import { highlightAuto } from 'highlight.js'
 import 'viewerjs/dist/viewer.css'
 import store from './store'
 Vue.directive('highlight', function (el) {
@@ -29,7 +30,7 @@ marked.setOptions({
   "headerIds": true,
   "headerPrefix": "",
   'highlight': function (code) {
-    return require('highlight.js').highlightAuto(code).value;
+    return highlightAuto(code).value;
   },
   "langPrefix": "hljs ",
   "mangle": true,
@@ -47,7 +48,7 @@ marked.setOptions({
 
 // });
 
-Vue.use(iView)
+// Vue.use(iView)
 Vue.use(Viewer)
 Vue.use(VueDisqus)
 
