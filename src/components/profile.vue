@@ -1,56 +1,42 @@
 <template>
   <section class="tg-profile tg-card">
     <div class="tg-avatar">
-      <img :src="require('@/assets/img/avatar.jpg')" alt>
+      <img :src="require('@/assets/img/avatar.jpg')" alt />
     </div>
     <div>
       <p>TrumanGu</p>
       <p>Student / Web</p>
-      <p class="gray">NJTH</p>
+      <p class="gray">NJtech</p>
     </div>
-    <!-- <div class="tg-data">
-      <div>
-        <p class="tg-heading">POSTS</p>
-        <p class="fw-7 font-15">34</p>
-      </div>
-      <div>
-        <p class="tg-heading">CATEGORIES</p>
-        <p class="fw-7 font-15">34</p>
-      </div>
-      <div>
-        <p class="tg-heading">TAGS</p>
-        <p class="fw-7 font-15">34</p>
-      </div>
-    </div>
-    <div class="tg-follow">
-      <Button type="primary" long @click="handleFollow">Follow</Button>
-    </div>-->
     <div class="tg-media">
-      <Poptip trigger="hover" title="Email me" content="TrumanGu1998@gamil.com">
-        <svg-icon iconClass="gmail" style="color:#dc4e41;"></svg-icon>
-      </Poptip>
-      <Poptip trigger="hover">
-        <svg-icon iconClass="qq" style="color:rgb(54, 155, 206);"></svg-icon>
-        <div class="api" slot="content">
-          <img :src="require('@/assets/img/qq.jpg')" alt="My qq QRcode" width="200px" height="auto">
-        </div>
-      </Poptip>
-      <div @click="githubClick()">
-        <svg-icon iconClass="github" style="color: rgb(25, 23, 23);"></svg-icon>
-      </div>
-      <!-- <Poptip trigger="hover"> -->
       <div>
-        <svg-icon iconClass="rss"></svg-icon>
+        <a href="mailto:TrumanGu1998@gamil.com">
+          <svg-icon iconClass="gmail" style="color:#dc4e41;"></svg-icon>
+        </a>
       </div>
-      <!-- <div class="api" slot="content">
-          <img
-            :src="require('@/assets/img/weiChat.jpg')"
-            alt="My weichat QRcode"
-            width="200px"
-            height="auto"
-      >-->
-      <!-- </div> -->
-      <!-- </Poptip> -->
+      <div>
+        <a
+          href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1227085585&website=www.oicqzone.com"
+        >
+          <svg-icon iconClass="qq" style="color:rgb(54, 155, 206);"></svg-icon>
+        </a>
+      </div>
+      <div>
+        <a href="https://github.com/TrumanGu">
+          <svg-icon iconClass="github" style="color: rgb(25, 23, 23);"></svg-icon>
+        </a>
+      </div>
+      <div>
+        <a href="rss" target="_blank">
+          <svg-icon iconClass="rss"></svg-icon>
+        </a>
+      </div>
+
+      <div>
+        <a href="https://t.me/Truman_Gu" target="_blank">
+          <svg-icon iconClass="telegram"></svg-icon>
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -123,7 +109,7 @@ export default {
     justify-content: space-around;
     margin-top: 20px;
     div {
-      > .svg-icon {
+      .svg-icon {
         height: 1.5rem;
         width: 1.5rem;
       }
