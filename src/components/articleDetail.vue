@@ -50,19 +50,6 @@ export default {
         this.detailLoading = false;
       });
   },
-  mounted() {
-    let containers = $(".gauss-img");
-    for (let elem of containers) {
-      let qualitySrc = elem.getAttribute("data-src");
-
-      let qualityImg = new Image();
-      qualityImg.src = qualitySrc;
-      qualityImg.onload = () => {
-        $(elem).removeClass("gauss-style");
-        elem.src = qualitySrc;
-      };
-    }
-  }
 };
 </script>
 

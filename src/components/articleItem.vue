@@ -87,6 +87,35 @@ export default {
       this.body_half = this.body;
       console.warn("article-item component didn't find any # matches");
     }
+
+    function hasClass(obj, cls) {
+      return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
+    }
+
+    function removeClass(obj, cls) {
+      if (hasClass(obj, cls)) {
+        var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
+        obj.className = obj.className.replace(reg, " ");
+      }
+    }
+    // setTimeout(() => {
+    this.$nextTick(() => {
+      let containers = document.querySelectorAll(".gauss-img");
+      // console.log(containers);
+      for (let elem of containers) {
+        // console.log(elem);
+        let qualitySrc = elem.getAttribute("data-src");
+        let qualityImg = new Image();
+        qualityImg.src = qualitySrc;
+        qualityImg.onload = () => {
+          removeClass(elem, "gauss-style");
+          // console.log(elem.src);
+          elem.src = qualitySrc;
+          // console.log(elem.src);
+        };
+      }
+    });
+    // }, 500);
   },
   created() {},
   watch: {
