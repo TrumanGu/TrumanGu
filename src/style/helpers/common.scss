@@ -4,19 +4,24 @@ $width-class: w;
 $line-height-class: lh;
 $font-weight-class: fw;
 $i:1;
+
 @for $i from 1 through 15 {
     .#{$font-class}-#{$i} {
         font-size: 0.1px * $i;
     }
+
     .#{$height-class}-#{$i} {
         height: 1px * $i;
     }
+
     .#{width-class}-#{$i} {
         height: 1px * $i;
     }
+
     .#{$line-height-class}-#{$i} {
         height: 0.5px * $i;
     }
+
     .#{$font-weight-class}-#{$i} {
         font-weight: 100 * $i;
     }
@@ -58,6 +63,7 @@ body {
     width: 100%;
     z-index: 11;
     height: 80px;
+
     &__container {
         margin-right: auto;
         margin-left: auto;
@@ -65,6 +71,7 @@ body {
         padding-right: 15px;
         height: 80px;
         width: 90%;
+
         // @media (min-width: 768px) {
         //   width: 760px;
         // }
@@ -83,29 +90,36 @@ body {
             height: 80px;
             line-height: 80px;
             vertical-align: middle;
+
             >h1 {
                 @media (max-width: 480px) {
                     font-size: 20px;
                     display: none;
                 }
+
                 font-size: 16px;
+
                 a {
                     font-weight: 600;
                     color: #fff;
                     transition: all 0.3s;
+
                     &:hover {
                         opacity: 0.7;
                     }
                 }
             }
+
             >.right {
                 @media (max-width: 480px) {
                     display: none;
                 }
+
                 >ul {
                     display: flex;
                     justify-content: space-around;
                     flex-wrap: nowrap;
+
                     .ivu-dropdown-rel {
                         >a {
                             color: #fff;
@@ -113,17 +127,20 @@ body {
                             cursor: pointer;
                             font-size: 14px;
                             transition: all 0.3s;
+
                             &:hover {
                                 opacity: 0.7;
                             }
                         }
                     }
+
                     >li {
                         color: #fff;
                         padding: 0 1vw;
                         cursor: pointer;
                         font-size: 14px;
                         transition: all 0.3s;
+
                         &:hover {
                             opacity: 0.7;
                         }
@@ -139,6 +156,7 @@ body {
     height: 42vw;
     position: relative;
     z-index: 10;
+
     h2 {
         white-space: nowrap;
         top: 50%;
@@ -149,10 +167,12 @@ body {
         color: white;
         font-size: 30px;
         font-weight: 400;
+
         @media (max-width: 480px) {
             font-size: 20px;
         }
     }
+
     .background-container {
         height: 42vw;
     }
@@ -165,28 +185,34 @@ body {
     display: flex;
     position: relative;
     max-width: 1200px;
+
     &__left {
         position: relative;
         min-height: 80%;
         flex: 1;
         width: 260px;
+
         .tg-profile {
             position: sticky;
             top: 40%;
         }
     }
+
     .tg-center {
         @media (min-width: 769px) {
             margin-left: 1px;
             width: calc(100% - 260px);
         }
+
         @media (max-width: 768px) {
             width: 100%;
             margin: auto;
         }
+
         .center-wrapper {
             section {
                 margin-bottom: 20px;
+
                 &:last-child {
                     margin-bottom: 0px;
                 }
@@ -198,22 +224,28 @@ body {
 .article-item {
     &__title {
         text-align: center;
+
         p {
             margin: 10px 0;
         }
+
         h1 {
             display: inline;
             font-size: 20px;
         }
     }
+
     .text-wrapper {
         padding: 20px;
+
         .markdown-html {
             font-size: 16px;
             overflow: hidden;
+
             a {
                 color: cornflowerblue;
             }
+
             ul {
                 display: block;
                 list-style-type: disc;
@@ -222,14 +254,17 @@ body {
                 margin-inline-start: 0px;
                 margin-inline-end: 0px;
                 padding-inline-start: 20px;
+
                 li {
                     list-style: unset;
                 }
             }
+
             img {
                 width: 100%;
                 cursor: pointer;
             }
+
             code:not(.hljs) {
                 background-color: rgba(27, 31, 35, .05);
                 border-radius: 3px;
@@ -238,6 +273,7 @@ body {
                 padding: .2em .4em;
                 font-family: Consolas, Menlo, Courier, monospace;
             }
+
             p,
             li {
                 width: 100%;
@@ -259,24 +295,29 @@ body {
     flex-direction: column;
     color: rgba(255, 255, 255, 0.8);
     font-size: 14px;
+
     .copy-right {
         text-align: center;
         line-height: 2;
         // margin-top: 3px;
         width: 100%;
+
         // padding: 2px;
         // border-top: 1px solid rgba(255, 255, 255, 0.1);
         a {
             color: rgba(255, 255, 255, 0.8);
         }
     }
+
     .signature {
         font-size: 16px;
         height: 20px;
     }
+
     .link-list {
         display: flex;
         justify-content: space-around;
+
         .dot {
             display: inline-block;
             width: 5px;
@@ -286,6 +327,7 @@ body {
             border-radius: 10px;
         }
     }
+
     .media-list {
         display: flex;
         justify-content: space-around;
@@ -295,14 +337,17 @@ body {
 .center-item-placeholder {
     overflow: hidden;
     margin-bottom: 16px;
+
     >.img-wrapper {
         overflow: hidden;
         height: 260px;
         max-height: 260px;
         background-color: #eee;
     }
+
     >.text-wrapper {
         padding: 16px;
+
         >.tg-small {
             font-size: 14px;
             margin-bottom: 5px;
@@ -310,6 +355,7 @@ body {
             height: 20px;
             background-color: #eee;
         }
+
         >h1 {
             width: 30px;
             height: 20px;
@@ -317,16 +363,19 @@ body {
             margin-bottom: 0.8px;
             transition: all 0.3s;
             cursor: pointer;
+
             &:hover {
                 color: #3273dc;
             }
         }
     }
+
     >.readmore {
         padding: 0 1.5px 1.5px;
         height: 1px;
         width: 2px;
         background-color: #eee;
+
         span {
             background-color: whitesmoke;
             padding: 0.3px 0.6px;
@@ -377,3 +426,9 @@ body {
 //     display: none;
 //   }
 // }
+
+.gauss-style {
+    filter: blur(10px);
+    transform: scale(1);
+
+}
