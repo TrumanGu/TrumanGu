@@ -7,7 +7,7 @@
 </template>
 
 <script>
-const { debounce } = require("lodash");
+import { debounce } from "lodash-es";
 import { mapState } from "vuex";
 import BackgroundCircle from "./mixin";
 export default {

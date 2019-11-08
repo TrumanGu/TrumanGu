@@ -4,23 +4,14 @@ import router from './router'
 import Viewer from 'v-viewer'
 import marked from 'marked'
 import VueDisqus from 'vue-disqus'
-// import iView from 'iview';
 import './iview';
 import './permission'
 import 'iview/dist/styles/iview.css';
 import './icons'
 import './style/index.scss';
-import 'highlight.js/styles/monokai-sublime.css'
-import { highlightAuto } from 'highlight.js'
+import Prism from 'prismjs'
 import 'viewerjs/dist/viewer.css'
 import store from './store'
-Vue.directive('highlight', function (el) {
-  let blocks = el.querySelectorAll('pre code');
-  // blocks.forEach((block)=>{
-  //   hljs.highlightBlock(block)
-  //   // hljs.lineNumbersBlock(block);
-  // })
-})
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -29,10 +20,7 @@ marked.setOptions({
   "gfm": true,
   "headerIds": true,
   "headerPrefix": "",
-  'highlight': function (code) {
-    return highlightAuto(code).value;
-  },
-  "langPrefix": "hljs ",
+  "langPrefix": "line-numbers language-",
   "mangle": true,
   "pedantic": false,
   "sanitize": false,
@@ -44,11 +32,7 @@ marked.setOptions({
   "xhtml": false
 });
 
-// $(document).ready(function() {
 
-// });
-
-// Vue.use(iView)
 Vue.use(Viewer)
 Vue.use(VueDisqus)
 
@@ -61,3 +45,4 @@ new Vue({
 }).$mount('#app')
 
 Vue.prototype.$marked = marked
+Vue.prototype.$Prism = Prism

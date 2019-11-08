@@ -1,10 +1,7 @@
 <template>
   <section class="article-item tg-card" v-viewer>
     <div class="text-wrapper">
-      <time class="tg-small tg-heading">
-        <!-- {{time}} -->
-        <!-- {{ `${ readTime } MINUTES READ (ABOUT ${ body.length } WORDS)` }} -->
-      </time>
+      <time class="tg-small tg-heading"></time>
       <div class="article-item__title">
         <a v-if="isDetailPage" href="#">
           <span v-html="this.$marked(title)"></span>
@@ -26,7 +23,7 @@
         </p>
       </div>
       <div class="markdown-html" :class="h1Class">
-        <pre v-html="this.$marked(body_half)" v-highlight></pre>
+        <pre v-html="renderDom"></pre>
       </div>
     </div>
   </section>
@@ -55,7 +52,8 @@ export default {
   data() {
     return {
       readTime: "",
-      body_half: ""
+      body_half: "",
+      renderDom: "" // 实际要渲染的dom
     };
   },
   computed: {
@@ -78,7 +76,6 @@ export default {
     this.readTime = Number.parseInt(this.body.length / 200);
 
     let index = this.body.match(/###?/);
-    // if(this.$route.name ===)
     if (this.$route.name === "article-detail") {
       this.body_half = this.body;
     } else if (index) {
@@ -87,6 +84,10 @@ export default {
       this.body_half = this.body;
       console.warn("article-item component didn't find any # matches");
     }
+    this.renderDom = this.$marked(this.body_half);
+    this.$nextTick(() => {
+      this.$Prism.highlightAll();
+    });
 
     function hasClass(obj, cls) {
       return obj.className.match(new RegExp("(\\s|^)" + cls + "(\\s|$)"));
@@ -98,24 +99,18 @@ export default {
         obj.className = obj.className.replace(reg, " ");
       }
     }
-    // setTimeout(() => {
     this.$nextTick(() => {
       let containers = document.querySelectorAll(".gauss-img");
-      // console.log(containers);
       for (let elem of containers) {
-        // console.log(elem);
         let qualitySrc = elem.getAttribute("data-src");
         let qualityImg = new Image();
         qualityImg.src = qualitySrc;
         qualityImg.onload = () => {
           removeClass(elem, "gauss-style");
-          // console.log(elem.src);
           elem.src = qualitySrc;
-          // console.log(elem.src);
         };
       }
     });
-    // }, 500);
   },
   created() {},
   watch: {
@@ -123,9 +118,6 @@ export default {
       this.body_half = new_val;
       console.log("body is new", new_val);
     }
-    // $route(){
-
-    // }
   }
 };
 </script>
@@ -136,47 +128,4 @@ export default {
     display: none;
   }
 }
-.hljs-ln-n {
-  width: 2.2px;
-  height: 1.5px;
-  text-align: center;
-  // color: #869194;
-  // background: #23241f;
-}
-.hljs {
-  // padding: 0;
-  background-color: #23241f;
-  font-family: Consolas, Menlo, Courier, monospace;
-  p {
-    word-wrap: break-word;
-  }
-  h3 {
-    // font-size: 10vw;
-  }
-}
-// .hljs {
-//   border: 0;
-//   display: block;
-//   padding: 1px;
-//   margin: 0;
-//   width: 100%;
-//   font-weight: 200;
-//   // color: #333;
-//   white-space: pre-wrap;
-//    color: #869194;
-//   background-color: #eff2f3;
-// }
-// .hljs ol {
-//   list-style: decimal;
-//   margin: 0px 0px 0 40px !important;
-
-// }
-// .hljs ol li {
-//   padding-left: 1px;
-//   list-style: decimal-leading-zero;
-//   border-left: 1px solid #ddd !important;
-//       background-color: #f7f7f7!important;
-//   white-space: pre;
-//   line-height: 1.7px;
-// }
 </style>
