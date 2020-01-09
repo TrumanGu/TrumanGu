@@ -5,7 +5,7 @@ import request from '../../utils/request'
  */
 export function queryAllArticles(page) {
     return request({
-        url: `/api/public/article?page=${page}&size=${1}`,
+        url: `/api/public/article?page=${page}&size=${10}`,
         method: 'get',
     })
 }

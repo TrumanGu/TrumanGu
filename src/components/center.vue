@@ -15,7 +15,7 @@
     </div>
     <Page
       class="main-pagination"
-      :page-size="2"
+      :page-size="10"
       :total="pageCountAll"
       @on-change="handlePageChange"
     />

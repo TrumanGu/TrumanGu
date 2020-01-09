@@ -41,9 +41,9 @@ export default {
   created() {
     this.id = this.$route.params.id;
     queryArticle(this.id)
-      .then(({ result }) => {
-        this.createdAt = result.createdAt;
-        this.content = result.content;
+      .then(({ data }) => {
+        this.createdAt = data.created_at;
+        this.content = data.content;
         this.readTime = Number.parseInt(this.content.length / 200);
       })
       .finally(_ => {
