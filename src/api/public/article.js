@@ -3,10 +3,10 @@ import request from '../../utils/request'
 /**
  * query all the article 
  */
-export function queryAllArticles() {
+export function queryAllArticles(page) {
     return request({
-        url: "/api/public/article",
-        method: 'get'
+        url: `/api/public/article?page=${page}&size=${1}`,
+        method: 'get',
     })
 }
 

@@ -16,10 +16,12 @@
               </a>
               <DropdownMenu slot="list">
                 <DropdownItem>
-                  <a
-                    href="https://github.com/TrumanGu/netease-player"
-                    target="_blank"
-                  >Netease-Player</a>
+                  <a v-for="item of shareLinkList"
+                  :key="item.id"
+                  :href="item.share_link"
+                  target="_blank"
+                  >{{ item.share_name}}
+                  </a>
                 </DropdownItem>
                 <DropdownItem disabled divided>Comming</DropdownItem>
               </DropdownMenu>
@@ -36,8 +38,22 @@
 
 <script>
 import { DropdownMenu, Dropdown, DropdownItem, Icon } from "iview";
+import { queryAllShares } from "@/api/public/share";
+
 export default {
   name: "TG-Navbar",
-  components: { DropdownMenu, Dropdown, DropdownItem, Icon }
+  components: { DropdownMenu, Dropdown, DropdownItem, Icon },
+  data(){ 
+    return {
+      shareLinkList:[]
+    }
+  },  
+  mounted(){
+    queryAllShares().then(res => {
+      if(res && res.code === 200) {
+        this.shareLinkList  = res.data 
+      }
+    })
+  }
 };
 </script>

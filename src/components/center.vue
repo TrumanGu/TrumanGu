@@ -4,7 +4,7 @@
       <article-item
         v-for="(item, index) in article_list"
         :key="index"
-        :createdAt="item.createdAt"
+        :createdAt="item.created_at"
         :body="item.content"
         :id="item.id"
       ></article-item>
@@ -13,6 +13,12 @@
       <article-placeholder v-if="article_list.length===0"></article-placeholder>
       <article-placeholder v-if="article_list.length===0"></article-placeholder>
     </div>
+    <Page
+      class="main-pagination"
+      :page-size="2"
+      :total="pageCountAll"
+      @on-change="handlePageChange"
+    />
   </section>
 </template>
 
@@ -31,7 +37,8 @@ export default {
   },
   data() {
     return {
-      article_list: []
+      article_list: [],
+      pageCountAll: 0
     };
   },
   created() {
@@ -42,13 +49,31 @@ export default {
   },
   methods: {
     async init_article_list() {
-      queryAllArticles().then(res => {
-        this.article_list = res.result;
+      let currentPage = Number.parseInt(this.$route.query.page);
+      if (isNaN(currentPage)) currentPage = 1;
+      queryAllArticles(currentPage).then(res => {
+        this.article_list = res.data.rows;
+        this.pageCountAll = res.data.count;
         this.$store.commit("HAS_REFRESHED", {
           refreshFlag: this.refreshFlag + 1
         });
       });
+    },
+    handlePageChange(e) {
+      // this.$route.query.page = e;
+      this.$router.replace({ name: "article-list", query: { page: e } });
     }
+  },
+  watch: {
+    $route: "init_article_list"
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.main-pagination {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+</style>
