@@ -8,27 +8,24 @@
         <div class="right">
           <ul>
             <router-link tag="li" to="/">Home</router-link>
-            <router-link tag="li" to="/timeline">Timeline</router-link>
+            <router-link tag="li" to="/time-line">Timeline</router-link>
             <Dropdown>
               <a href="javascript:void(0)">
                 Design
                 <Icon type="ios-arrow-down"></Icon>
               </a>
               <DropdownMenu slot="list">
-                <DropdownItem>
-                  <a v-for="item of shareLinkList"
-                  :key="item.id"
-                  :href="item.share_link"
-                  target="_blank"
-                  >{{ item.share_name}}
-                  </a>
+                <DropdownItem 
+                  v-for="item of shareLinkList"
+                  :key="item.id">
+                  <a :href="item.share_link" target="_blank">{{ item.share_name}}</a>
                 </DropdownItem>
                 <DropdownItem disabled divided>Comming</DropdownItem>
               </DropdownMenu>
             </Dropdown>
             <!-- <router-link tag="li" to="/design"></router-link> -->
             <router-link tag="li" to="/comming">Friends</router-link>
-            <router-link tag="li" to="/comming">About Me</router-link>
+            <router-link tag="li" to="/about-me">About Me</router-link>
           </ul>
         </div>
       </div>
