@@ -6,7 +6,7 @@
         <a v-if="isDetailPage" href="#">
           <span v-html="this.$marked(title)"></span>
         </a>
-        <router-link v-else :to="{ name: 'article-detail', params: { id:id} }">
+        <router-link v-else :to="{ name: 'article-detail', params: { id:id }}">
           <span v-html="this.$marked(title)"></span>
         </router-link>
 

@@ -45,6 +45,8 @@ export default {
         this.createdAt = data.created_at;
         this.content = data.content;
         this.readTime = Number.parseInt(this.content.length / 200);
+        this.$store.commit('SET_PAGE_CENTER', data.title)
+        document.title = data.title + ` | TrumanGu's Blog`
       })
       .finally(_ => {
         this.detailLoading = false;
