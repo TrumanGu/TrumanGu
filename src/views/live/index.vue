@@ -2,32 +2,18 @@
   <section
     class="live"
     :style="{ 
+        background: 'url(http://assets.trumangu.fun/blog/187-.jpg)',
         width: width, 
         height: height,
-        background: 'url(http://assets.trumangu.fun/background.jpg)',
         backgroundSize: 'cover'
         }"
   >
     <div class="prism-player" id="player-con"></div>
-    <Modal title="流地址" :loading="loading" v-model="modalShow" width="300">
-      <p slot="header" style="text-align:center">
-        <span>开启直播吧~</span>
-      </p>
-      <p style="line-height: 20px">
-        请输入直播的流地址, 或者发送
-        <a href="mailto:TrumanGu1998@gamil.com">邮件</a>给我
-      </p>
-      <p style="line-height: 20px; margin-top: 20px">
-        <Input v-model="source" />
-      </p>
-      <div slot="footer">
-        <Button type="info" size="large" long @click="handleCreatePlayer">确定</Button>
-      </div>
-    </Modal>
   </section>
 </template>
 
 <script>
+import { getLiveSource } from "@/api/public/live";
 export default {
   name: "live-page",
   data() {
@@ -35,7 +21,6 @@ export default {
       width: 0,
       height: 0,
       loading: false,
-      modalShow: false,
       source: "",
       player: null
     };
@@ -61,20 +46,26 @@ export default {
     this.height = window.innerHeight + "px";
 
     script.onload = () => {
-      this.modalShow = true;
+      getLiveSource().then(res => {
+        if (res && res.code === 200) {
+          const liveItem = res.data[0];
+          const { live_name, live_link } = liveItem;
+          this.handleCreatePlayer(live_link);
+          // TODO: 这里要改标题
+        }
+      });
     };
   },
   methods: {
-    handleCreatePlayer() {
-      this.modalShow = false;
+    handleCreatePlayer(source) {
       this.player = new Aliplayer(
         {
           id: "player-con",
-          source: this.source,
+          source,
           width: "100%",
-          cover: "http://assets.trumangu.fun/background.jpg",
+          cover: "http://assets.trumangu.fun/blog/187-.jpg",
           height: window.innerHeight + "px",
-          autoplay: true,
+          autoplay: false,
           isLive: true,
           rePlay: false,
           playsinline: true,
