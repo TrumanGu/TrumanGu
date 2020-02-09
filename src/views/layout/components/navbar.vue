@@ -15,9 +15,7 @@
                 <Icon type="ios-arrow-down"></Icon>
               </a>
               <DropdownMenu slot="list">
-                <DropdownItem 
-                  v-for="item of shareLinkList"
-                  :key="item.id">
+                <DropdownItem v-for="item of shareLinkList" :key="item.id">
                   <a :href="item.share_link" target="_blank">{{ item.share_name}}</a>
                 </DropdownItem>
                 <DropdownItem disabled divided>Comming</DropdownItem>
@@ -40,17 +38,17 @@ import { queryAllShares } from "@/api/public/share";
 export default {
   name: "TG-Navbar",
   components: { DropdownMenu, Dropdown, DropdownItem, Icon },
-  data(){ 
+  data() {
     return {
-      shareLinkList:[]
-    }
-  },  
-  mounted(){
+      shareLinkList: []
+    };
+  },
+  mounted() {
     queryAllShares().then(res => {
-      if(res && res.code === 200) {
-        this.shareLinkList  = res.data 
+      if (res && res.code === 200) {
+        this.shareLinkList = res.data;
       }
-    })
+    });
   }
 };
 </script>
