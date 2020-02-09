@@ -91,6 +91,13 @@ export const constantRouterMap = [{
         // },
 
     ]
+}, {
+    path: '/live',
+    component: () => import('@/views/layout'),
+    children: [{
+        path: '',
+        component: () => import('@/views/live')
+    }]
 },
 {
     path: '*',
