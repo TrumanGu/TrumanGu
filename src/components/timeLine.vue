@@ -5,6 +5,7 @@
         <div
           class="time-line-item"
           v-for="item of timeLineList"
+          :key="item.id"
         >
           <div>
             <svg-icon
@@ -12,17 +13,17 @@
               iconClass="time-line"
             ></svg-icon>
             <time class="publish-time">
-              {{ item.created_at.slice(0,10)}}
+              {{ item[0].created_at.slice(0,4)}}
             </time>
-
           </div>
-          <div class="item-content-wrapper">
+          <div v-for="article of item" :key="article.id" class="item-content-wrapper">
             <div class="arrow">
             </div>
             <div class="item-content">
-              <p>
-                <router-link :to="{ name: 'article-detail', params: { id:item.id} }"> {{item.title}}</router-link>
-              </p>
+              <!-- <div> -->
+                <router-link :to="{ name: 'article-detail', params: { id:article.id } }"> {{ article.title }}</router-link>
+                <span>{{ article.created_at.slice(0,10) }}</span>
+              <!-- </div> -->
             </div>
           </div>
         </div>
@@ -32,37 +33,32 @@
 </template>
 
 <script>
+import { queryTimeLine } from '../api/public/article'
 export default {
   name: "time-line",
   data() {
     return {
-      timeLineList: [
-        {
-          title: "测试标题测试标题测试标题测试标题",
-          created_at: "2019-11-22T06:28:15.000Z",
-          id: 7
-        },
-        { title: "测试标题", created_at: "2019-11-22T06:28:15.000Z", id: 7 },
-        {
-          title: "测试标题测试标题测试标题测试标题测试标题测试标题测试标题",
-          created_at: "2019-11-22T06:28:15.000Z",
-          id: 7
-        },
-        { title: "测试标题", created_at: "2019-11-22T06:28:15.000Z", id: 7 },
-        {
-          title: "测试测试标题测试标题测试标题测试标题测试标题标题",
-          created_at: "2019-11-22T06:28:15.000Z",
-          id: 7
-        },
-        { title: "测试标题", created_at: "2019-11-22T06:28:15.000Z", id: 7 },
-        {
-          title: "测试标题测试标题测试标题",
-          created_at: "2019-11-22T06:28:15.000Z",
-          id: 7
+      rawList: []
+    }
+  },
+  computed: {
+    timeLineList(){
+      let tmpList = [], currenrYear = new Date().getFullYear()
+      for(let i = 0; i< 20; i++){
+        let tragetYear = currenrYear - i;
+        let oneYearArticle = this.rawList.filter(i => new Date(i.created_at).getFullYear() === tragetYear)
+        if(oneYearArticle.length) tmpList.push(oneYearArticle)
+      }
+      return tmpList 
+    }
+  },
+  mounted () {
+    queryTimeLine().then(res => {
+      if(res && res.code === 200){
+        this.rawList = res.data
         }
-      ]
-    };
-  }
+    });
+  },
 };
 </script>
 
@@ -99,8 +95,15 @@ export default {
   padding: 20px;
   border-radius: 3px;
   flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  span {
+    font-style: italic;
+  }
   a {
     font-size: 16px;
+    max-width: 80%;
   }
 }
 .time-icon {

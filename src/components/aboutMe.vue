@@ -13,6 +13,6 @@ export default {
 <style lang="scss" scoped>
 .about-me {
     height: 800px;
-    background-color: skyblue;
+    // background-color: skyblue;
 }
 </style>

@@ -18,3 +18,10 @@ export function queryArticle(id) {
         method: 'get'
     })
 }
+
+export function queryTimeLine() {
+    return request({
+        url: "/api/public/timeline",
+        method: 'get'
+    })
+}
