@@ -7,8 +7,8 @@
         </h1>
         <div class="right">
           <ul>
-            <router-link tag="li" to="/">Home</router-link>
-            <router-link tag="li" to="/time-line">Timeline</router-link>
+            <router-link class="nav-list" to="/">Home</router-link>
+            <router-link class="nav-list" to="/time-line">Timeline</router-link>
             <Dropdown>
               <a href="javascript:void(0)">
                 Design
@@ -21,9 +21,9 @@
                 <DropdownItem disabled divided>Comming</DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <!-- <router-link tag="li" to="/design"></router-link> -->
-            <router-link tag="li" to="/comming">Friends</router-link>
-            <router-link tag="li" to="/about-me">About Me</router-link>
+            <!-- <router-link  to="/design"></router-link> -->
+            <router-link class="nav-list" to="/comming">Friends</router-link>
+            <router-link class="nav-list" to="/about-me">About Me</router-link>
           </ul>
         </div>
       </div>
@@ -52,3 +52,15 @@ export default {
   }
 };
 </script>
+<style scoped>
+.nav-list{
+    color: #fff;
+    padding: 0 1vw;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+.nav-list:hover{
+  opacity: .7;
+}
+</style>
