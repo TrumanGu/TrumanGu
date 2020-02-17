@@ -31,8 +31,8 @@ export const constantRouterMap = [{
             path: '/time-line',
             name: 'time-line',
             meta: {
-                'center_title': "时光轴",
-                "top_title": "时光轴"
+                'center_title': "Time Line",
+                "top_title": "Time Line"
             },
             component: () =>
                 import('@/components/timeLine')
@@ -40,8 +40,8 @@ export const constantRouterMap = [{
             path: '/friends',
             name: 'friends',
             meta: {
-                'center_title': "我的朋友们",
-                "top_title": "我的朋友们"
+                'center_title': "My Friends",
+                "top_title": "My Friends"
             },
             component: () =>
                 import('@/components/articleDetail')
@@ -50,8 +50,8 @@ export const constantRouterMap = [{
             path: '/about-me',
             name: 'about-me',
             meta: {
-                'center_title': "关于我",
-                "top_title": "关于我"
+                'center_title': "About Me",
+                "top_title": "About Me"
             },
             component: () =>
                 import('@/components/aboutMe')

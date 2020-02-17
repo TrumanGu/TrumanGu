@@ -12,6 +12,14 @@ router.beforeEach(async (to, from, next) => {
             document.title = BlogName
         }else{
             document.title = title + ' | '+ BlogName
+            // let meta = metaList[metaList.length-1]
+            // console.log(meta.name, meta.content)
+            let metaList = document.getElementsByTagName('meta')
+            for(let item of metaList){
+                if(item.name === 'description'){
+                    item.setAttribute('content', document.title)
+                }
+            }
         }
     })
     next()

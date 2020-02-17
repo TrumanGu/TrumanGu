@@ -13,12 +13,13 @@
         <p>
           <span>
             <svg-icon iconClass="date" style="color:#4990EE;"></svg-icon>
-            {{ createdAt.slice(0,10) }}
+           <time>&nbsp;{{ createdAt.slice(0,10) }}</time>
+           <!-- {{ createdAt.slice(0,10) }} -->
           </span>
-
+          <span>&nbsp;&nbsp;</span>
           <span>
             <svg-icon iconClass="time" style="color: lightpink"></svg-icon>
-            {{ fullTime?fullTime:readTime }} min read
+            <i>&nbsp;{{ fullTime?fullTime:readTime }} min read</i>
           </span>
         </p>
       </div>
