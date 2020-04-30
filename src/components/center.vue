@@ -6,6 +6,7 @@
         :key="index"
         :createdAt="item.created_at"
         :body="item.content"
+        :title="item.title"
         :id="item.id"
       ></article-item>
       <article-placeholder v-if="article_list.length===0"></article-placeholder>

@@ -4,17 +4,19 @@
       <time class="tg-small tg-heading"></time>
       <div class="article-item__title">
         <a v-if="isDetailPage" href="#">
-          <span v-html="this.$marked(title)"></span>
+          <h1>{{title}}</h1>
+          <!-- <span v-html="this.$marked(title)"></span> -->
         </a>
         <router-link v-else :to="{ name: 'article-detail', params: { id:id }}">
-          <span v-html="this.$marked(title)"></span>
+          <!-- <span v-html="this.$marked(title)"></span> -->
+          <h1>{{title}}</h1>
         </router-link>
 
         <p>
           <span>
             <svg-icon iconClass="date" style="color:#4990EE;"></svg-icon>
-           <time>&nbsp;{{ createdAt.slice(0,10) }}</time>
-           <!-- {{ createdAt.slice(0,10) }} -->
+            <time>&nbsp;{{ createdAt.slice(0,10) }}</time>
+            <!-- {{ createdAt.slice(0,10) }} -->
           </span>
           <span>&nbsp;&nbsp;</span>
           <span>
@@ -35,6 +37,11 @@ import { queryAllArticles } from "@/api/public/article.js";
 export default {
   name: "article-item",
   props: {
+    title: {
+      type: String,
+      required: true,
+      default: ""
+    },
     body: {
       type: String,
       required: true
@@ -58,10 +65,6 @@ export default {
     };
   },
   computed: {
-    title() {
-      let title_match = this.body.match(/(#\s.*?\n+)|(#\s.*?\r\n+)/);
-      return title_match ? title_match[0] : "";
-    },
     isDetailPage() {
       return this.$route.name === "article-detail";
     },
@@ -80,7 +83,7 @@ export default {
     if (this.$route.name === "article-detail") {
       this.body_half = this.body;
     } else if (index) {
-      this.body_half = this.body.slice(this.title.length, index.index - 1);
+      this.body_half = this.body.slice(this.title.length + 4, index.index - 1);
     } else {
       this.body_half = this.body;
       console.warn("article-item component didn't find any # matches");

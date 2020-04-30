@@ -47,7 +47,7 @@ export const constantRouterMap = [{
                 import('@/components/articleDetail')
         },
         {
-            path: '/about-me',
+            path: '/about-me/0',
             name: 'about-me',
             meta: {
                 'center_title': "About Me",

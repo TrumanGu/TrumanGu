@@ -25,3 +25,10 @@ export function queryTimeLine() {
         method: 'get'
     })
 }
+
+export function queryAboutMe() {
+    return request({
+        url: "/api/public/article/0",
+        method: 'get'
+    })
+}

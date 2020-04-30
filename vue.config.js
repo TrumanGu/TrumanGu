@@ -1,6 +1,6 @@
 const path = require('path')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-    // const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const isDev = process.env.NODE_ENV !== 'production'
@@ -13,14 +13,16 @@ module.exports = {
     // assetsDir: './',
     chainWebpack: config => {
         config.plugin('define').tap(args => {
-                const argv = process.argv
-                const icourt = argv[argv.indexOf('--icourt-mode') + 1]
+            const argv = process.argv
+            const icourt = argv[argv.indexOf('--icourt-mode') + 1]
 
-                args[0]['process.env'].MODE = `"${icourt}"`
+            args[0]['process.env'].MODE = `"${icourt}"`
 
-                return args
-            })
-            // svg rule loader
+            return args
+        })
+        config.resolve.alias
+            .set('@', path.resolve(__dirname, 'src'));
+        // svg rule loader
         const svgRule = config.module.rule('svg') // 找到svg-loader
         svgRule.uses.clear() // 清除已有的loader, 如果不这样做会添加在此loader之后
         svgRule.exclude.add(/node_modules/) // 正则匹配排除node_modules目录
@@ -106,12 +108,12 @@ module.exports = {
         open: true,
         https: false,
         proxy: {
-            // '/api': {
-            //   target: 'https://www.trumangu.fun',
-            // },
             '/api': {
-                target: 'http://localhost:3000',
+                target: 'https://trumangu.fun',
             },
+            // '/api': {
+            //     target: 'http://localhost:3000',
+            // },
 
         },
     },

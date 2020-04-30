@@ -23,7 +23,7 @@
             </Dropdown>
             <!-- <router-link  to="/design"></router-link> -->
             <router-link class="nav-list" to="/comming">Friends</router-link>
-            <router-link class="nav-list" to="/about-me">About Me</router-link>
+            <router-link class="nav-list" to="/about-me/0">About Me</router-link>
           </ul>
         </div>
       </div>
@@ -53,14 +53,14 @@ export default {
 };
 </script>
 <style scoped>
-.nav-list{
-    color: #fff;
-    padding: 0 1vw;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
+.nav-list {
+  color: #fff;
+  padding: 0 1vw;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s;
 }
-.nav-list:hover{
-  opacity: .7;
+.nav-list:hover {
+  opacity: 0.7;
 }
 </style>
