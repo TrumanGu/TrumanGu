@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { debounce } from "lodash-es";
 import { mapState } from "vuex";
 import BackgroundCircle from "./mixin";
 export default {
@@ -27,13 +26,11 @@ export default {
   },
   computed: { ...mapState(["windowHeight", "windowWidth"]) },
   watch: {
-    windowHeight(val) {
+    windowHeight() {
       this.BackgroundCircle.init();
-      // this.BackgroundCircle.animate();
     },
-    windowWidth(val) {
+    windowWidth() {
       this.BackgroundCircle.init();
-      // this.BackgroundCircle.animate();
     }
   }
 };

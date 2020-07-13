@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import { queryAllIssues } from "@/api/public/repos.js";
 import { queryAllArticles } from "@/api/public/article.js";
 import articleItem from "@/components/articleItem.vue";
 import articlePlaceholder from "@/components/articlePlaceholder.vue";

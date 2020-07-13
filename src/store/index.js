@@ -33,7 +33,7 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        setPageTitle({ commit, state }, router) {
+        setPageTitle({ commit }, router) {
             const center_title = router.meta['center_title']
             const top_title = router.meta['top_title']
             if (center_title) {

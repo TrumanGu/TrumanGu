@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 import { debounce, throttle } from "lodash-es";
 
 export default {

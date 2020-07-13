@@ -51,7 +51,7 @@ export default {
         this.title = data.title;
         document.title = data.title + ` | TrumanGu's Blog`;
       })
-      .finally(_ => {
+      .finally(() => {
         this.detailLoading = false;
       });
   }

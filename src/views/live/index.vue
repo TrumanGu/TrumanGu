@@ -1,12 +1,12 @@
 <template>
   <section
     class="live"
-    :style="{ 
-        background: 'url(http://assets.trumangu.fun/blog/187-.jpg)',
-        width: width, 
-        height: height,
-        backgroundSize: 'cover'
-        }"
+    :style="{
+      background: 'url(http://assets.trumangu.fun/blog/187-.jpg)',
+      width: width,
+      height: height,
+      backgroundSize: 'cover',
+    }"
   >
     <div class="prism-player" id="player-con"></div>
   </section>
@@ -22,7 +22,7 @@ export default {
       height: 0,
       loading: false,
       source: "",
-      player: null
+      player: null,
     };
   },
   mounted() {
@@ -46,10 +46,10 @@ export default {
     this.height = window.innerHeight + "px";
 
     script.onload = () => {
-      getLiveSource().then(res => {
+      getLiveSource().then((res) => {
         if (res && res.code === 200) {
           const liveItem = res.data[0];
-          const { live_name, live_link } = liveItem;
+          const { live_link } = liveItem;
           this.handleCreatePlayer(live_link);
           // TODO: 这里要改标题
         }
@@ -58,6 +58,7 @@ export default {
   },
   methods: {
     handleCreatePlayer(source) {
+      // eslint-disable-next-line no-undef
       this.player = new Aliplayer(
         {
           id: "player-con",
@@ -70,18 +71,16 @@ export default {
           rePlay: false,
           playsinline: true,
           controlBarVisibility: "hover",
-          useH5Prism: true
+          useH5Prism: true,
         },
-        function(player) {
-          console.log("The player is created");
-        }
+        () => {}
       );
-    }
+    },
   },
   beforeDestroy() {
     let footer = document.getElementsByClassName("tg-footer")[0];
     footer.style.display = "flex";
-  }
+  },
 };
 </script>
 <style lang="scss" scoped>

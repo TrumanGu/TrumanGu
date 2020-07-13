@@ -33,7 +33,6 @@
 </template>
 
 <script>
-import { queryAllArticles } from "@/api/public/article.js";
 export default {
   name: "article-item",
   props: {
@@ -86,7 +85,6 @@ export default {
       this.body_half = this.body.slice(this.title.length + 4, index.index - 1);
     } else {
       this.body_half = this.body;
-      console.warn("article-item component didn't find any # matches");
     }
     this.renderDom = this.$marked(this.body_half);
     this.$nextTick(() => {
@@ -120,7 +118,6 @@ export default {
   watch: {
     body(new_val) {
       this.body_half = new_val;
-      console.log("body is new", new_val);
     }
   }
 };

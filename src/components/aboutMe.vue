@@ -5,10 +5,8 @@
 </template>
 
 <script>
-import ArticleDetail from "./articleDetail";
 import { queryAboutMe } from "@/api/public/article";
 export default {
-  components: { ArticleDetail },
   data() {
     return { aboutMe: "" };
   },
@@ -16,7 +14,6 @@ export default {
     queryAboutMe().then(res => {
       this.aboutMe = res.data.content;
     });
-    console.log("?");
   }
 };
 </script>

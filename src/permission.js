@@ -6,7 +6,7 @@ import store from './store'
 const BlogName =  "TrumanGu's Blog"
 router.beforeEach(async (to, from, next) => {
     NProgress.start()
-    store.dispatch('setPageTitle', to).then(_ => {
+    store.dispatch('setPageTitle', to).then(() => {
         const title = store.state.pageTopTitle
         if(title === BlogName){
             document.title = BlogName
