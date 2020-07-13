@@ -2,7 +2,7 @@ const path = require('path')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const isDev = process.env.NODE_ENV !== 'production'
 
 function resolve(dir) {
@@ -10,7 +10,6 @@ function resolve(dir) {
 }
 
 module.exports = {
-    // assetsDir: './',
     chainWebpack: config => {
         config.plugin('define').tap(args => {
             const argv = process.argv
@@ -22,11 +21,10 @@ module.exports = {
         })
         config.resolve.alias
             .set('@', path.resolve(__dirname, 'src'));
-        // svg rule loader
-        const svgRule = config.module.rule('svg') // 找到svg-loader
-        svgRule.uses.clear() // 清除已有的loader, 如果不这样做会添加在此loader之后
-        svgRule.exclude.add(/node_modules/) // 正则匹配排除node_modules目录
-        svgRule // 添加svg新的loader处理
+        const svgRule = config.module.rule('svg')
+        svgRule.uses.clear() 
+        svgRule.exclude.add(/node_modules/)
+        svgRule
             .test(/\.svg$/)
             .use('svg-sprite-loader')
             .loader('svg-sprite-loader')
@@ -98,9 +96,8 @@ module.exports = {
                 threshold: 10240,
                 minRatio: 0.8
             }),
-            new BundleAnalyzerPlugin()
+            // new BundleAnalyzerPlugin() 
         ],
-        // 生产环境产生sourcemap
     },
     productionSourceMap: false,
 
