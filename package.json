@@ -13,7 +13,7 @@
     "compression-webpack-plugin": "^2.0.0",
     "iview": "^3.3.3",
     "lodash-es": "^4.17.15",
-    "marked": "^0.6.1",
+    "marked": "^0.7.0",
     "nprogress": "^0.2.0",
     "prismjs": "^1.17.1",
     "v-viewer": "^1.4.1",
