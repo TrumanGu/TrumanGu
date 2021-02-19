@@ -1,3 +1,3 @@
 
-#### [Truman's Blog](https://www.trumangu.fun)
-#### ~
+[Blog](https://www.trumangu.fun)
+[some little thing](http://design.trumangu.fun/)
